@@ -13,5 +13,5 @@ for (package in packages$Package) {
             print(e)
             cat("Failed to install package ", package, "\n")
         })
-    cat(sucesses, "successes and", errors, "errrors so far\n")
+    cat(successes, "successes and", errors, "errrors so far\n")
 }
