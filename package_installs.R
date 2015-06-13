@@ -14,7 +14,7 @@ for (package in packages$Package) {
                        error=function(e) {
                        print(e)
                        cat("Failed to install package ", package, "\n")
-                       return("error")}))
+                       return("error")})
     successes <- successes + (if (status=="success") 1 else 0)
     errors    <- errors    + (if (status=="error")   1 else 0)
     cat(successes, "successes and", errors, "errrors so far\n")
