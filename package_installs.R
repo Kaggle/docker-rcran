@@ -9,6 +9,7 @@ cl <- makeCluster(M, outfile = "install_log")
 
 do_one <- function(pkg){
   install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
+}
 
 DL <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
 DL <- lapply(DL, function(x) x[x %in% pkgs])
