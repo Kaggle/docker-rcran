@@ -4,7 +4,7 @@ successes = 0
 errors = 0
 
 my.install.packages <- function(package) {
-    install.packages(package, verbose=FALSE, quiet=TRUE)
+    install.packages(package, verbose=FALSE, quiet=TRUE, repos="https://cran.cnr.berkeley.edu/")
     return("success")
 }
 
