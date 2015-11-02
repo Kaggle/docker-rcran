@@ -1,7 +1,7 @@
 packages <- as.data.frame(available.packages())
 
 pkgs <- as.character(packages$Package)
-M <- 10 # number of parallel installs
+M <- 4 # number of parallel installs
 M <- min(M, length(pkgs))
 library(parallel)
 unlink("install_log")
