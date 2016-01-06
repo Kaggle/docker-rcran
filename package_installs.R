@@ -1,7 +1,7 @@
 
 # Docker Hub imposes a 2 hour time limit. That includes the time it takes
-# to pull the base images
-timeLimitMinutes <- 100
+# to pull the base images, and to push the result.
+timeLimitMinutes <- 85
 timeLimitSeconds <- 60 * timeLimitMinutes
 
 packages <- as.data.frame(available.packages())
