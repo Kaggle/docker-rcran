@@ -2,16 +2,17 @@
 # Docker Hub imposes a 2 hour time limit. That includes the time it takes
 # to pull the base images, and to push the result.
 timeLimitMinutes <- 80
-timeLimitSeconds <- 60 * timeLimitMinutes
+timeLimitSeconds <- 35#  60 * timeLimitMinutes
 
 print(Sys.time())
+startTime <- Sys.time()
 
 packages <- as.data.frame(available.packages())
-existingPackages <- installed.packages()
+existingPackages <- as.data.frame(installed.packages())
 
 alreadyInstalled <- function(pkg){
-  if(pkg %in% rownames(existingPackages)){
-    if(existingPackages[pkg,"Version"] == as.character(packages$Version[pkg])) {
+  if(pkg %in% rownames(existingPackages) && pkg %in% rownames(packages)){
+    if(as.character(existingPackages[pkg,"Version"]) == as.character(packages$Version[pkg])) {
       return(TRUE)
     }
   }
@@ -19,9 +20,9 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-packages <- packages[!vecAlreadyInstalled(packages)]
+packagesToGet <- rownames(packages)[!vecAlreadyInstalled(rownames(packages))]
 
-cat("Total packages to install: ", length(packages), "\n")
+cat("Total packages to install: ", nrow(packages), "\n")
 cat("Already installed: ", nrow(existingPackages), "\n")
 
 my.install.packages <- function(package) {
@@ -29,8 +30,10 @@ my.install.packages <- function(package) {
     return("success")
 }
 
-totalPackagesToProcess <- length(packages)
-for (package in packages) {
+totalPackagesToProcess <- nrow(packages)
+successes <- 0
+errors <- 0
+for (package in packagesToGet) {
     cat(as.character(Sys.time()), ": Installing Package ", package, "\n")
     status <- tryCatch(my.install.packages(package),
                        error=function(e) {
@@ -40,15 +43,15 @@ for (package in packages) {
     successes <- successes + (if (status=="success") 1 else 0)
     errors    <- errors    + (if (status=="error")   1 else 0)
     cat(successes, "successes and", errors, "errrors so far\n")
-    cat(Sys.time(), "\n")
+    cat(as.character(Sys.time(), "\n"))
     if(as.numeric(Sys.time() - startTime, units="secs") > timeLimitSeconds) {
         break
     }
 }
 
 if(successes + errors == totalPackagesToProcess) {
- print("Done!!!")
+ cat("Done!!!\n")
 }else{
- print("**** Stopping due to time limit ****")
+ cat("**** Stopping due to time limit ****\n")
 }
 
