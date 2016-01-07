@@ -1,22 +1,13 @@
 
 # Docker Hub imposes a 2 hour time limit. That includes the time it takes
 # to pull the base images, and to push the result.
-timeLimitMinutes <- 85
+timeLimitMinutes <- 80
 timeLimitSeconds <- 60 * timeLimitMinutes
+
+print(Sys.time())
 
 packages <- as.data.frame(available.packages())
 existingPackages <- installed.packages()
-
-pkgs <- as.character(packages$Package)
-M <- 4 # number of parallel installs
-M <- min(M, length(pkgs))
-library(parallel)
-unlink("install_log")
-cl <- makeCluster(M, outfile = "install_log")
-
-do_one <- function(pkg){
-  install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
-}
 
 alreadyInstalled <- function(pkg){
   if(pkg %in% rownames(existingPackages)){
@@ -28,53 +19,36 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-print(Sys.time())
+packages <- packages[!vecAlreadyInstalled(packages)]
 
-DL <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
-DL <- lapply(DL, function(x) x[x %in% pkgs])
-DL <- DL[!vecAlreadyInstalled(names(DL))]
-lens <- sapply(DL, length)
-ready <- names(DL[lens == 0L])
-done <- character() # packages already installed
-n <- length(ready)
+cat("Total packages to install: ", length(packages), "\n")
+cat("Already installed: ", nrow(existingPackages), "\n")
 
-print(paste("Ready packages: ", n))
-print(paste("Total packages to install: ", length(DL)))
-print(paste("Already installed: ", nrow(existingPackages)))
-
-submit <- function(node, pkg) {
-    parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
+my.install.packages <- function(package) {
+    install.packages(package, verbose=FALSE, quiet=TRUE, repos="https://cran.cnr.berkeley.edu/")
+    return("success")
 }
 
-for (i in 1:min(n, M)) submit(i, ready[i])
-DL <- DL[!names(DL) %in% ready[1:min(n, M)]]
-av <- if(n < M) (n+1L):M else integer() # available workers
-startTime <- Sys.time()
-while(length(done) < length(pkgs) && as.numeric(Sys.time() - startTime, units="secs") < timeLimitSeconds) {
-    d <- parallel:::recvOneResult(cl)
-    av <- c(av, d$node)
-    done <- c(done, d$tag)
-    print(paste("Installed ", d$tag))
-    OK <- unlist(lapply(DL, function(x) all(x %in% done) ))
-    if (!any(OK)) {
-      print("No packages ready to install; waiting for next ready worker")
-      next
+totalPackagesToProcess <- length(packages)
+for (package in packages) {
+    cat(as.character(Sys.time()), ": Installing Package ", package, "\n")
+    status <- tryCatch(my.install.packages(package),
+                       error=function(e) {
+                       print(e)
+                       cat("Failed to install package ", package, "\n")
+                       return("error")})
+    successes <- successes + (if (status=="success") 1 else 0)
+    errors    <- errors    + (if (status=="error")   1 else 0)
+    cat(successes, "successes and", errors, "errrors so far\n")
+    cat(Sys.time(), "\n")
+    if(as.numeric(Sys.time() - startTime, units="secs") > timeLimitSeconds) {
+        break
     }
-    print(paste("Packages ready to install: ", length(OK)))
-    p <- names(DL)[OK]
-    m <- min(length(p), length(av)) # >= 1
-    print(paste("Using", m, "workers"))
-    for (i in 1:m) {
-      submit(av[i], p[i])
-    }
-    av <- av[-(1:m)]
-    DL <- DL[!names(DL) %in% p[1:m]]
-    print(Sys.time())
-    print(paste("Packages still remaining: ", length(DL)))
 }
 
-if(length(done) < length(pkgs)) {
-  print("**** Stopping due to time limit ****")
+if(successes + errors == totalPackagesToProcess) {
+ print("Done!!!")
 }else{
-  print("Done!!!")
+ print("**** Stopping due to time limit ****")
 }
+
