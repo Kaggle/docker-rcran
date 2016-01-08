@@ -1,9 +1,4 @@
 
-# Docker Hub imposes a 2 hour time limit. That includes the time it takes
-# to pull the base images, and to push the result.
-timeLimitMinutes <- 95
-timeLimitSeconds <- 60 * timeLimitMinutes
-
 print(Sys.time())
 startTime <- Sys.time()
 
@@ -24,6 +19,18 @@ packagesToGet <- rownames(packages)[!vecAlreadyInstalled(rownames(packages))]
 
 cat("Total packages to install: ", nrow(packages), "\n")
 cat("Already installed: ", nrow(existingPackages), "\n")
+
+
+# Docker Hub imposes a 2 hour time limit. That includes the time it takes
+# to pull the base images, and to push the result.
+if(nrow(existingPackages) < 900) {
+    timeLimitMinutes <- 95
+}else{
+    # Allow for push/pulls of larger images
+    timeLimitMinutes <- 80
+}
+timeLimitSeconds <- 60 * timeLimitMinutes
+
 
 my.install.packages <- function(package) {
     install.packages(package, verbose=FALSE, quiet=TRUE, repos="https://cran.cnr.berkeley.edu/")
