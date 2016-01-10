@@ -25,9 +25,11 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 # to pull the base images, and to push the result.
 if(nrow(existingPackages) < 900) {
     timeLimitMinutes <- 95
-}else{
+}else if(nrow(existingPackages) < 2300){
     # Allow for push/pulls of larger images
     timeLimitMinutes <- 80
+}else{
+  timeLimitMinutes <- 65
 }
 timeLimitSeconds <- 60 * timeLimitMinutes
 
