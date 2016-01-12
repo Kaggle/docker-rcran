@@ -28,9 +28,13 @@ if(nrow(existingPackages) < 900) {
 }else if(nrow(existingPackages) < 2300){
     # Allow for push/pulls of larger images
     timeLimitMinutes <- 80
-}else{
+}else if(nrow(existingPackages) < 3650){
   timeLimitMinutes <- 65
+}else{
+  # Extrapolating the time/package trend to guess how long we have
+  timeLimitMinutes <- 65 - 0.011*(existingPackages-3650)
 }
+
 timeLimitSeconds <- 60 * timeLimitMinutes
 
 
