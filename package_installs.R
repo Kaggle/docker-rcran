@@ -25,13 +25,8 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 # to pull the base images, and to push the result.
 if(nrow(existingPackages) < 900) {
     timeLimitMinutes <- 95
-}else if(nrow(existingPackages) < 2300){
-    # Allow for push/pulls of larger images
-    timeLimitMinutes <- 80
-}else if(nrow(existingPackages) < 3650){
-  timeLimitMinutes <- 65
 }else{
-  # Extrapolating the time/package trend to guess how long we have
+  # Based on test builds, the time trend / package looks linearish
   timeLimitMinutes <- 65 - 0.011*(existingPackages-3650)
 }
 
