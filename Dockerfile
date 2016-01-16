@@ -1,4 +1,4 @@
-FROM kaggle/rcran17
+FROM kaggle/rcran18
 
 RUN Rscript /tmp/package_installs.R
 
