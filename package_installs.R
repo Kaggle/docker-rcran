@@ -5,7 +5,18 @@ startTime <- Sys.time()
 packages <- as.data.frame(available.packages())
 existingPackages <- as.data.frame(installed.packages())
 
+FAILURE_LOG_FILENAME <- "install_failures.txt"
+if(file.exists(FAILURE_LOG_FILENAME)){
+  failures <- scan(file=FAILURE_LOG_FILENAME, what=character(), quiet=TRUE)
+  cat("Ignoring ", length(failures), " previous failed installations.\n")
+}else{
+  failures <- c()
+}
+
 alreadyInstalled <- function(pkg){
+  if(pkg %in% failures){
+    return(TRUE)
+  }
   if(pkg %in% rownames(existingPackages) && pkg %in% rownames(packages)){
     if(as.character(existingPackages[pkg,"Version"]) == as.character(packages$Version[pkg])) {
       return(TRUE)
@@ -45,19 +56,24 @@ successes <- 0
 errors <- 0
 for (package in packagesToGet) {
     cat(as.character(Sys.time()), ": Installing Package ", package, "\n")
+    # We treat warning() calls as errors because install.packages only ever
+    # throws a warning
     status <- tryCatch(my.install.packages(package),
-                       error=function(e) {
+                       warning=function(e) {
                        print(e)
                        cat("Failed to install package ", package, "\n")
+                       failures <<- c(failures, package)
                        return("error")})
     successes <- successes + (if (status=="success") 1 else 0)
     errors    <- errors    + (if (status=="error")   1 else 0)
-    cat(successes, "successes and", errors, "errrors so far\n")
+    cat(successes, "successes and", errors, "errors so far\n")
     cat(as.character(Sys.time(), "\n"))
     if(as.numeric(Sys.time() - startTime, units="secs") > timeLimitSeconds) {
         break
     }
 }
+
+write(failures, file=FAILURE_LOG_FILENAME)
 
 if(successes + errors == totalPackagesToProcess) {
  cat("Done!!!\n")
