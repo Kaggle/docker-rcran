@@ -2,7 +2,8 @@
 print(Sys.time())
 startTime <- Sys.time()
 
-packages <- as.data.frame(available.packages())
+availablePackages <- available.packages()
+packages <- as.data.frame(availablePackages)
 existingPackages <- as.data.frame(installed.packages())
 
 FAILURE_LOG_FILENAME <- "install_failures.txt"
@@ -47,7 +48,9 @@ timeLimitSeconds <- 60 * timeLimitMinutes
 
 
 my.install.packages <- function(package) {
-    install.packages(package, verbose=FALSE, quiet=TRUE, repos="https://cran.cnr.berkeley.edu/")
+    install.packages(package, verbose=FALSE, quiet=TRUE,
+                     repos="https://cran.cnr.berkeley.edu/",
+                     available = availablePackages)
     return("success")
 }
 
