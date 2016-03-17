@@ -2,6 +2,10 @@
 print(Sys.time())
 startTime <- Sys.time()
 
+r <- getOption("repos")
+r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
+options(repos = r)
+
 availablePackages <- available.packages()
 packages <- as.data.frame(availablePackages)
 existingPackages <- as.data.frame(installed.packages())
@@ -46,9 +50,9 @@ timeLimitSeconds <- 60 * timeLimitMinutes
 
 
 my.install.packages <- function(package) {
-    install.packages(package, verbose=FALSE, quiet=TRUE,
-                     repos="https://cran.cnr.berkeley.edu/",
-                     available = availablePackages)
+    # Should be able to save a few seconds with the `available` argument, but
+    # this raises 404 errors--possible bug in R 3.2.4
+    install.packages(package, verbose=FALSE, quiet=TRUE)
     return("success")
 }
 
