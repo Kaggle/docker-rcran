@@ -39,8 +39,10 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 
 # Docker Hub imposes a 2 hour time limit. That includes the time it takes
 # to pull the base images, and to push the result.
-if(nrow(existingPackages) < 900) {
+if(nrow(existingPackages) < 500) {
     timeLimitMinutes <- 95
+}else if(nrow(existingPackages) < 900) {
+  timeLimitMinutes <- 85
 }else {
   # Based on test builds, the time trend / package looks linearish
   timeLimitMinutes <- 65 - 0.01*(nrow(existingPackages)-3650)
