@@ -45,7 +45,7 @@ if(nrow(existingPackages) < 500) {
   timeLimitMinutes <- 85
 }else {
   # Based on test builds, the time trend / package looks linearish
-  timeLimitMinutes <- 65 - 0.01*(nrow(existingPackages)-3650)
+  timeLimitMinutes <- 60 - 0.008*(nrow(existingPackages)-3650)
 }
 
 timeLimitSeconds <- 60 * timeLimitMinutes
