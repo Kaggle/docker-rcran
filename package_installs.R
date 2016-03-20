@@ -52,9 +52,7 @@ timeLimitSeconds <- 60 * timeLimitMinutes
 
 
 my.install.packages <- function(package) {
-    # Should be able to save a few seconds with the `available` argument, but
-    # this raises 404 errors--possible bug in R 3.2.4
-    install.packages(package, verbose=FALSE, quiet=TRUE)
+    install.packages(package, verbose=FALSE, quiet=TRUE, available=availablePackages)
     return("success")
 }
 
