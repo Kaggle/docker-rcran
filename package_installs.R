@@ -41,10 +41,11 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 # to pull the base images, and to push the result.
 if(nrow(existingPackages) < 500) {
     timeLimitMinutes <- 95
-}else if(nrow(existingPackages) < 900) {
-  timeLimitMinutes <- 85
 }else {
-  timeLimitMinutes <- 78 - 0.01*(nrow(existingPackages) - 900)
+  # Based on estimates from previous builds
+  pushPullTime <- 28 + 0.005*nrow(existingPackages)
+  fudgeFactor <- 10
+  timeLimitMinutes <- 120 - (pushPullTime + fudgeFactor)
 }
 
 timeLimitSeconds <- 60 * timeLimitMinutes
