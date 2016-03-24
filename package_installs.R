@@ -44,7 +44,7 @@ if(nrow(existingPackages) < 500) {
 }else {
   # Based on estimates from previous builds
   pushPullTime <- 28 + 0.005*nrow(existingPackages)
-  fudgeFactor <- 10
+  fudgeFactor <- 15
   timeLimitMinutes <- 120 - (pushPullTime + fudgeFactor)
 }
 
