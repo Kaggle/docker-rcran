@@ -43,9 +43,12 @@ if(nrow(existingPackages) < 500) {
     timeLimitMinutes <- 95
 } else if(nrow(existingPackages) < 800) {
     timeLimitMinutes <- 89
+} else if(nrow(existingPackages) < 1000) {
+    # Weird speedhump building rcran2
+    timeLimitMinutes <- 60
 } else {
   # Based on estimates from previous builds
-  pushPullTime <- 30 + 0.0052*nrow(existingPackages)
+  pushPullTime <- 28 + 0.005*nrow(existingPackages)
   fudgeFactor <- 18
   timeLimitMinutes <- 120 - (pushPullTime + fudgeFactor)
 }
