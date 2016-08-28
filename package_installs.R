@@ -40,16 +40,13 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 # Docker Hub imposes a 2 hour time limit. That includes the time it takes
 # to pull the base images, and to push the result.
 if(nrow(existingPackages) < 500) {
-    timeLimitMinutes <- 100
+    timeLimitMinutes <- 110
 } else if(nrow(existingPackages) < 800) {
     timeLimitMinutes <- 105
-} else if(nrow(existingPackages) < 1000) {
-    # Weird speedhump building rcran2
-    timeLimitMinutes <- 60
 } else {
   # Based on estimates from previous builds
-  pushPullTime <- 15 + 0.0035*nrow(existingPackages)
-  fudgeFactor <- 10
+  pushPullTime <- 15 + 0.003*nrow(existingPackages)
+  fudgeFactor <- 5
   timeLimitMinutes <- 120 - (pushPullTime + fudgeFactor)
 }
 
