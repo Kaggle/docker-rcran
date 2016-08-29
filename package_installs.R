@@ -42,7 +42,7 @@ cat("Already installed: ", nrow(existingPackages), "\n")
 if(nrow(existingPackages) < 500) {
     timeLimitMinutes <- 105
 } else if(nrow(existingPackages) < 800) {
-    timeLimitMinutes <- 105
+    timeLimitMinutes <- 97
 } else {
   # Based on estimates from previous builds
   pushPullTime <- 15 + 0.003*nrow(existingPackages)
