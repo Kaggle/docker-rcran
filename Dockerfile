@@ -1,5 +1,3 @@
-FROM rocker/hadleyverse
+FROM kaggle/rcran24
 
-ADD package_installs.R /tmp/package_installs.R 
 RUN Rscript /tmp/package_installs.R
-
