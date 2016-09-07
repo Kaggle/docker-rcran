@@ -1,29 +1,20 @@
+packages <- as.data.frame(available.packages())
+existingPackages <- installed.packages()
 
-print(Sys.time())
-startTime <- Sys.time()
+pkgs <- as.character(packages$Package)
+M <- 4 # number of parallel installs
+M <- min(M, length(pkgs))
+library(parallel)
+unlink("install_log")
+cl <- makeCluster(M, outfile = "install_log")
 
-r <- getOption("repos")
-r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
-options(repos = r)
-
-availablePackages <- available.packages()
-packages <- as.data.frame(availablePackages)
-existingPackages <- as.data.frame(installed.packages())
-
-FAILURE_LOG_FILENAME <- "install_failures.txt"
-if(file.exists(FAILURE_LOG_FILENAME)){
-  failures <- scan(file=FAILURE_LOG_FILENAME, what=character(), quiet=TRUE)
-  cat("Ignoring ", length(failures), " previous failed installations.\n")
-}else{
-  failures <- c()
+do_one <- function(pkg){
+  install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
 }
 
 alreadyInstalled <- function(pkg){
-  if(pkg %in% failures){
-    return(TRUE)
-  }
-  if(pkg %in% rownames(existingPackages) && pkg %in% rownames(packages)){
-    if(as.character(existingPackages[pkg,"Version"]) == as.character(packages$Version[pkg])) {
+  if(pkg %in% rownames(existingPackages)){
+    if(existingPackages[pkg,"Version"] == as.character(packages$Version[pkg])) {
       return(TRUE)
     }
   }
@@ -31,60 +22,49 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-packagesToGet <- rownames(packages)[!vecAlreadyInstalled(rownames(packages))]
+print(Sys.time())
 
-cat("Total packages to install: ", nrow(packages), "\n")
-cat("Already installed: ", nrow(existingPackages), "\n")
+DL <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
+DL <- lapply(DL, function(x) x[x %in% pkgs])
+DL <- DL[!vecAlreadyInstalled(names(DL))]
+lens <- sapply(DL, length)
+ready <- names(DL[lens == 0L])
+done <- character() # packages already installed
+n <- length(ready)
 
+print(paste("Ready packages: ", n))
+print(paste("Total packages to install: ", length(DL)))
+print(paste("Already installed: ", nrow(existingPackages)))
 
-# Docker Hub imposes a 2 hour time limit. That includes the time it takes
-# to pull the base images, and to push the result.
-if(nrow(existingPackages) < 500) {
-    timeLimitMinutes <- 105
-} else if(nrow(existingPackages) < 800) {
-    timeLimitMinutes <- 97
-} else {
-  # Based on estimates from previous builds
-  pushPullTime <- 15 + 0.003*nrow(existingPackages)
-  fudgeFactor <- 5
-  timeLimitMinutes <- 120 - (pushPullTime + fudgeFactor)
+submit <- function(node, pkg) {
+    parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
 }
 
-timeLimitSeconds <- 60 * timeLimitMinutes
-
-
-my.install.packages <- function(package) {
-    install.packages(package, verbose=FALSE, quiet=TRUE, available=availablePackages)
-    return("success")
-}
-
-totalPackagesToProcess <- nrow(packages)
-successes <- 0
-errors <- 0
-for (package in packagesToGet) {
-    cat(as.character(Sys.time()), ": Installing Package ", package, "\n")
-    # We treat warning() calls as errors because install.packages only ever
-    # throws a warning
-    status <- tryCatch(my.install.packages(package),
-                       warning=function(e) {
-                       print(e)
-                       cat("Failed to install package ", package, "\n")
-                       failures <<- c(failures, package)
-                       return("error")})
-    successes <- successes + (if (status=="success") 1 else 0)
-    errors    <- errors    + (if (status=="error")   1 else 0)
-    cat(successes, "successes and", errors, "errors so far\n")
-    cat(as.character(Sys.time(), "\n"))
-    if(as.numeric(Sys.time() - startTime, units="secs") > timeLimitSeconds) {
-        break
+for (i in 1:min(n, M)) submit(i, ready[i])
+DL <- DL[!names(DL) %in% ready[1:min(n, M)]]
+av <- if(n < M) (n+1L):M else integer() # available workers
+startTime <- Sys.time()
+while(length(done) < length(pkgs)) {
+    d <- parallel:::recvOneResult(cl)
+    av <- c(av, d$node)
+    done <- c(done, d$tag)
+    print(paste("Installed ", d$tag))
+    OK <- unlist(lapply(DL, function(x) all(x %in% done) ))
+    if (!any(OK)) {
+      print("No packages ready to install; waiting for next ready worker")
+      next
     }
+    print(paste("Packages ready to install: ", length(OK)))
+    p <- names(DL)[OK]
+    m <- min(length(p), length(av)) # >= 1
+    print(paste("Using", m, "workers"))
+    for (i in 1:m) {
+      submit(av[i], p[i])
+    }
+    av <- av[-(1:m)]
+    DL <- DL[!names(DL) %in% p[1:m]]
+    print(Sys.time())
+    print(paste("Packages still remaining: ", length(DL)))
 }
 
-write(failures, file=FAILURE_LOG_FILENAME)
-
-if(successes + errors == totalPackagesToProcess) {
- cat("Done!!!\n")
-}else{
- cat("**** Stopping due to time limit ****\n")
-}
-
+print("Done!!!")
