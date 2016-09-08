@@ -5,8 +5,8 @@ pkgs <- as.character(packages$Package)
 M <- 4 # number of parallel installs
 M <- min(M, length(pkgs))
 library(parallel)
-unlink("install_log")
-cl <- makeCluster(M, outfile = "install_log")
+unlink("install_log_parallel")
+cl <- makeCluster(M, outfile = "install_log_parallel")
 
 do_one <- function(pkg){
   install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
@@ -21,6 +21,8 @@ alreadyInstalled <- function(pkg){
   return(FALSE)
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
+
+sink("install_log")
 
 print(Sys.time())
 
@@ -68,3 +70,4 @@ while(length(done) < length(pkgs)) {
 }
 
 print("Done!!!")
+sink()
