@@ -22,8 +22,6 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-sink("install_log")
-
 print(Sys.time())
 
 DL <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
@@ -42,22 +40,32 @@ submit <- function(node, pkg) {
     parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
 }
 
+dependencyLevel <- 1
 for (i in 1:min(n, M)) submit(i, ready[i])
 DL <- DL[!names(DL) %in% ready[1:min(n, M)]]
 av <- if(n < M) (n+1L):M else integer() # available workers
 startTime <- Sys.time()
-while(length(done) < length(pkgs)) {
+while(length(done) < length(pkgs) && length(DL) > 0) {
     d <- parallel:::recvOneResult(cl)
     av <- c(av, d$node)
     done <- c(done, d$tag)
     print(paste("Installed ", d$tag))
     OK <- unlist(lapply(DL, function(x) all(x %in% done) ))
     if (!any(OK)) {
-      print("No packages ready to install; waiting for next ready worker")
-      next
+      lens <- sapply(DL, length)
+      ready <- names(DL[lens == dependencyLevel])
+      if(length(ready) == 0){
+        dependencyLevel <- dependencyLevel + 1
+        print(paste("Stepping up dependency level to", dependencyLevel))
+        lens <- sapply(DL, length)
+        ready <- names(DL[lens == dependencyLevel])
+      }
+      print(paste("Installing next package with", dependencyLevel, "dependencies"))
+      p <- ready[1:length(av)]
+    }else{
+      print(paste("Packages ready to install: ", sum(OK)))
+      p <- names(DL)[OK]
     }
-    print(paste("Packages ready to install: ", length(OK)))
-    p <- names(DL)[OK]
     m <- min(length(p), length(av)) # >= 1
     print(paste("Using", m, "workers"))
     for (i in 1:m) {
@@ -70,4 +78,3 @@ while(length(done) < length(pkgs)) {
 }
 
 print("Done!!!")
-sink()
