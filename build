@@ -2,5 +2,5 @@
 set -e
 
 docker pull rocker/hadleyverse
-docker build --rm --no-cache -t kaggle/rcran .
+docker build --rm --no-cache --cpu-period=100000 --cpu-quota=200000 -t kaggle/rcran .
 docker push kaggle/rcran
