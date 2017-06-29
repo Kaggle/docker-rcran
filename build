@@ -3,4 +3,8 @@ set -e
 
 docker pull rocker/hadleyverse
 docker build --rm --no-cache --cpu-period=100000 --cpu-quota=200000 -t kaggle/rcran .
+
+# Verify 'convert' (ImageMagick) is available.
+docker run --rm -t --read-only --net=none kaggle/rcran convert >&/dev/null
+
 docker push kaggle/rcran
