@@ -9,7 +9,7 @@ unlink("install_log_parallel")
 cl <- makeCluster(M, outfile = "install_log_parallel")
 
 do_one <- function(pkg){
-  install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/', "--pkglock")
+  install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
 }
 
 alreadyInstalled <- function(pkg){
