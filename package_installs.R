@@ -1,7 +1,7 @@
 # Repo to pull package data and metadata from.
 REPO <- 'http://cran.stat.ucla.edu'
 # Number of parallel installs.
-M <- 28
+M <- 4
 
 library(parallel)
 unlink("install_log_parallel")
