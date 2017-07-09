@@ -1,15 +1,25 @@
-packages <- as.data.frame(available.packages())
-existingPackages <- installed.packages()
+# Repo to pull package data and metadata from.
+REPO <- 'http://cran.stat.ucla.edu'
+# Number of parallel installs.
+M <- 4
 
-pkgs <- as.character(packages$Package)
-M <- 4 # number of parallel installs
-M <- min(M, length(pkgs))
 library(parallel)
 unlink("install_log_parallel")
 cl <- makeCluster(M, outfile = "install_log_parallel")
 
-do_one <- function(pkg){
-  install.packages(pkg, verbose=FALSE, quiet=TRUE, repos='http://cran.stat.ucla.edu/')
+packages <- as.data.frame(available.packages(repos=REPO))
+existingPackages <- installed.packages()
+
+pkgs <- as.character(packages$Package)
+M <- min(M, length(pkgs))
+
+do_one <- function(repo, pkg){
+  h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
+  # Treat warnings as errors. (An example 'warning' is that the package is not found!)
+  tryCatch(
+    install.packages(pkg, verbose=FALSE, quiet=TRUE, repos=repo),
+    error=h,
+    warning=h)
 }
 
 alreadyInstalled <- function(pkg){
@@ -22,59 +32,80 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-print(Sys.time())
-
-DL <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
-DL <- lapply(DL, function(x) x[x %in% pkgs])
-DL <- DL[!vecAlreadyInstalled(names(DL))]
-lens <- sapply(DL, length)
-ready <- names(DL[lens == 0L])
-done <- character() # packages already installed
+print("Generating dependency list...")
+dl <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
+dl <- dl[!vecAlreadyInstalled(names(dl))]
+dl <- lapply(dl, function(x) x[x %in% names(dl)])
+lens <- sapply(dl, length)
+ready <- names(dl[lens == 0L])
 n <- length(ready)
+total <- length(dl)
 
 print(paste("Ready packages: ", n))
-print(paste("Total packages to install: ", length(DL)))
+print(paste("Total packages to install: ", total))
 print(paste("Already installed: ", nrow(existingPackages)))
 
 submit <- function(node, pkg) {
-    parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
+    parallel:::sendCall(cl[[node]], do_one, list(REPO, pkg), tag = pkg)
 }
 
-dependencyLevel <- 1
-for (i in 1:min(n, M)) submit(i, ready[i])
-DL <- DL[!names(DL) %in% ready[1:min(n, M)]]
+for (i in 1:min(n, M)) {
+  submit(i, ready[i])
+}
+dl <- dl[!names(dl) %in% ready[1:min(n, M)]]
 av <- if(n < M) (n+1L):M else integer() # available workers
-startTime <- Sys.time()
-while(length(done) < length(pkgs) && length(DL) > 0) {
+
+success <- character(0)
+errors <- character(0)
+start <- Sys.time()
+while(length(dl) > 0 || length(av) != M) {
+    if (length(av) == M) {
+      stop("deadlock")
+    }
+
     d <- parallel:::recvOneResult(cl)
+
+    # Handle errors reported by the worker.
+    if (inherits(d$value, 'try-error')) {
+      msg <- paste("ERROR: worker", d$node, "for package ", d$tag, ":", d$value)
+      print(msg)
+      warning(msg)
+      errors <- c(errors, d$tag)
+    } else {
+      success <- c(success, d$tag)
+    }
+
+    # Find work to be done.
     av <- c(av, d$node)
-    done <- c(done, d$tag)
-    print(paste("Installed ", d$tag))
-    OK <- unlist(lapply(DL, function(x) all(x %in% done) ))
-    if (!any(OK)) {
-      lens <- sapply(DL, length)
-      ready <- names(DL[lens == dependencyLevel])
-      if(length(ready) == 0){
-        dependencyLevel <- dependencyLevel + 1
-        print(paste("Stepping up dependency level to", dependencyLevel))
-        lens <- sapply(DL, length)
-        ready <- names(DL[lens == dependencyLevel])
+    dl <- lapply(dl, function(x) x[x != d$tag])
+    lens <- sapply(dl, length)
+    ready <- names(dl[lens == 0L])
+    m <- min(length(ready), length(av))  # >= 1
+
+    # Report for this iteration.
+    eta <- start + (Sys.time() - start) / (length(success) + length(errors)) * total
+    print(paste(
+      "done:", d$tag, "on", d$node,
+      ", success:", length(success),
+      ", failed:", length(errors),
+      ", remaining:", length(dl),
+      ", ready:", length(ready),
+      ", next:", if (m) paste(ready[1:m], "on", av[1:m]) else "<none>",
+      ", eta:", eta))
+
+    # Possibly schedule next work. Typically submits exactly 1 task, though occasionally:
+    #   - 0 (when blocked on ongoing installs to complete dependencies first)
+    #   - or >1 (possibly after being unblocked from the previously described condition)
+    if (m) {
+      for (i in 1:m) {
+        submit(av[i], ready[i])
       }
-      print(paste("Installing next package with", dependencyLevel, "dependencies"))
-      p <- ready[1:length(av)]
-    }else{
-      print(paste("Packages ready to install: ", sum(OK)))
-      p <- names(DL)[OK]
+      av <- av[-(1:m)]
+      dl <- dl[!names(dl) %in% ready[1:m]]
     }
-    m <- min(length(p), length(av)) # >= 1
-    print(paste("Using", m, "workers"))
-    for (i in 1:m) {
-      submit(av[i], p[i])
-    }
-    av <- av[-(1:m)]
-    DL <- DL[!names(DL) %in% p[1:m]]
-    print(Sys.time())
-    print(paste("Packages still remaining: ", length(DL)))
 }
 
-print("Done!!!")
+print("Done!")
+print(paste("Successfully installed:", success))
+print(paste("Likely failed:", errors))
+print(paste("Elapsed:", Sys.time() - start))
