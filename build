@@ -6,9 +6,21 @@ exec 1> >(logger -s -p user.notice -t $0-rcran-$commit 2>&1)
 exec 2> >(logger -s -p user.error -t $0-rcran-$commit)
 
 docker pull rocker/hadleyverse
-docker build --rm --no-cache --cpu-period=100000 --cpu-quota=200000 -t kaggle/rcran .
+docker build --rm --no-cache --cpu-period=100000 --cpu-quota=200000 -t kaggle/rcran-build .
 
 # Verify 'convert' (ImageMagick) is available.
-docker run --rm -t --read-only --net=none kaggle/rcran convert --version
+docker run --rm -t --read-only --net=none kaggle/rcran-build convert --version
 
+rm -rf /tmp/rcran-build
+mkdir -p /tmp/rcran-build/tmp
+mkdir -p /tmp/rcran-build/devshm
+mkdir -p /tmp/rcran-build/working
+docker run --rm -t --read-only --net=none -e HOME=/tmp -v $PWD:/input:ro -v /tmp/rcran-build/working:/working -w=/working -v /tmp/rcran-build/tmp:/tmp -v /tmp/rcran-build/devshm:/dev/shm kaggle/rcran-build /bin/bash -c 'Rscript /input/test_build.R'
+
+# Verify expected test_build.R output is present.
+[ -s /tmp/rcran-build/working/plot1.png ]
+
+echo "ok"
+
+docker tag kaggle/rcran-build:latest kaggle/rcran:latest
 docker push kaggle/rcran
