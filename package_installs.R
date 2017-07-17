@@ -1,5 +1,5 @@
 # Repo to pull package data and metadata from.
-REPO <- 'http://cran.stat.ucla.edu'
+REPO <- 'http://ftp.osuosl.org/pub/cran'
 # Number of parallel installs.
 M <- 4
 
