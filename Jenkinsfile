@@ -47,7 +47,7 @@ pipeline {
           set -exo pipefail
 
           date
-          ./push staging
+          ./push latest
         '''
       }
     }
