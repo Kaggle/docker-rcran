@@ -9,5 +9,5 @@ gcloud docker -- push gcr.io/kaggle-images/rcran:${label}
 
 if [[ "$label" == "latest" ]]; then
 	docker tag kaggle/rcran-build:latest kaggle/rcran:${label}
-	docker push kaggle/rcran::${label}
+	docker push kaggle/rcran:${label}
 fi
