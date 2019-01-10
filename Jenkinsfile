@@ -1,4 +1,4 @@
-String cron_string = BRANCH_NAME == "master" ? "H 9 * * 1-5" : ""
+String cron_string = BRANCH_NAME == "master" ? "H 9 * * 1" : ""
 
 pipeline {
   agent { label 'ephemeral-linux' }
