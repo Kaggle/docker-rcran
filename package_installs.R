@@ -1,7 +1,9 @@
 # Repo to pull package data and metadata from.
 REPO <- 'http://ftp.osuosl.org/pub/cran'
 # Number of parallel installs.
-M <- 4
+M <- 64
+# Make use of all CPUs, it's linked to the GCB custom VM size.
+options(Ncpus = 32)
 
 library(parallel)
 unlink("install_log_parallel")
@@ -17,7 +19,7 @@ do_one <- function(repo, pkg){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=TRUE, repos=repo),
+    install.packages(pkg, verbose=FALSE, quiet=TRUE, repos=repo, dependencies=TRUE),
     error=h,
     warning=h)
 }
