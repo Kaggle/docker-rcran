@@ -1,7 +1,7 @@
 FROM rocker/tidyverse
 
 RUN apt-get update && \
-    apt-get install -y imagemagick libudunits2-dev curl
+    apt-get install -y imagemagick libudunits2-dev curl libgdal-dev
 
 # Install Rust and Cargo. Some R packages requires Rust.
 # See: b/113106905
