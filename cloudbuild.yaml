@@ -47,7 +47,7 @@ images: ['gcr.io/kaggle-images/rcran:$_TAG']
 
 options:
   # Use of largest GCB instance size in shared pool.
-  # If change, update Ncpus in package_installs.R.
+  # Upon change, update Ncpus in package_installs.R.
   machineType: 'N1_HIGHCPU_32'
   diskSizeGb: 1000 # Max disk size. Gives more IOPS.
 
