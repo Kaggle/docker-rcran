@@ -1,33 +1,25 @@
 steps:
-# REMOVE AFTER TESTING
-# Run docker stats in the background.
-# --no-stream is used in order to print the stats on different lines.
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'run'
-  - '-d'
-  - '--name=docker-stats'
-  - '--volume=/var/run/docker.sock:/var/run/docker.sock'
-  - '--entrypoint=/bin/bash'
-  - 'gcr.io/cloud-builders/docker'
-  - '-c'
-  - 'while true; do docker stats --no-stream; sleep 1; done'
-
-- name: 'gcr.io/cloud-builders/docker'
+- id: 'build'
+  name: 'gcr.io/cloud-builders/docker'
   args:
   - build
-  - --rm # we can probably remove
-  - --no-cache # same
-  - --tag=gcr.io/$PROJECT_ID/rcran-build:temp64
+  - --rm
+  - --no-cache
+  - --tag=gcr.io/$PROJECT_ID/rcran-build:temp
   - .
 
-# TODO(philmod): keep for future debugging?
-- name: 'gcr.io/cloud-builders/docker'
+# Pushing the intermediate image can be useful 
+# to debug test failures.
+- id: 'intermediate-push'
+  waitFor: ['build']
+  name: 'gcr.io/cloud-builders/docker'
   args:
   - push
-  - gcr.io/$PROJECT_ID/rcran-build:temp64
+  - gcr.io/$PROJECT_ID/rcran-build:temp
 
-- name: 'gcr.io/cloud-builders/docker'
+- id: 'test'
+  waitFor: ['build']
+  name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args:
   - '-c'
@@ -36,7 +28,7 @@ steps:
     
     # Verify 'convert' (ImageMagick) is available.
     docker run --rm -t --read-only --net=none \
-      gcr.io/$PROJECT_ID/rcran-build:temp64 \
+      gcr.io/$PROJECT_ID/rcran-build:temp \
       convert --version
 
     rm -rf /tmp/rcran-build
@@ -49,7 +41,7 @@ steps:
       -w=/working \
       -v /tmp/rcran-build/tmp:/tmp \
       -v /tmp/rcran-build/devshm:/dev/shm \
-      gcr.io/$PROJECT_ID/rcran-build:temp64 \
+      gcr.io/$PROJECT_ID/rcran-build:temp \
       /bin/bash -c 'Rscript /input/test_build.R'
 
     # Verify expected test_build.R output is present.
@@ -57,10 +49,21 @@ steps:
 
     echo "ok"
 
-# images: ['gcr.io/kaggle-images/rcran']
+- id: 'retag'
+  waitFor: ['test']
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - tag
+  - gcr.io/$PROJECT_ID/rcran-build:temp
+  - gcr.io/kaggle-images/rcran:$_TAG
+
+images: ['gcr.io/kaggle-images/rcran:$_TAG']
 
 options:
   machineType: 'N1_HIGHCPU_32'
-  diskSizeGb: 1000 # does that give more IOPS?
+  diskSizeGb: 1000 # Max disk size. Gives more IOPS.
 
 timeout: 86400s
+
+substitutions:
+  _TAG: testing # Change to latest for production.
