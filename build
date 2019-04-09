@@ -1,9 +1,0 @@
-#!/bin/bash
-set -e
-
-commit=$(git log -1 --format="%h" 2>/dev/null || echo no-commit)
-exec 1> >(logger -s -p user.notice -t $0-rcran-$commit 2>&1)
-exec 2> >(logger -s -p user.error -t $0-rcran-$commit)
-
-docker pull rocker/tidyverse
-docker build --rm --no-cache --cpu-period=100000 --cpu-quota=200000 -t kaggle/rcran-build .
