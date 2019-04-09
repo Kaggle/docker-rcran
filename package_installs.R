@@ -1,8 +1,11 @@
 # Repo to pull package data and metadata from.
 REPO <- 'http://ftp.osuosl.org/pub/cran'
-# Number of parallel installs.
+
+# Number of parallel installs. 
+# Experimentally optimized. A too high value (128) crashes.
 M <- 64
-# Make use of all CPUs, it's linked to the GCB custom VM size.
+
+# Make use of all CPUs available to the custom GCB VM size we use.
 options(Ncpus = 32)
 
 library(parallel)

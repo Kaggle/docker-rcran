@@ -8,8 +8,7 @@ steps:
   - --tag=gcr.io/$PROJECT_ID/rcran-build:temp
   - .
 
-# Pushing the intermediate image can be useful 
-# to debug test failures.
+# Pushing the intermediate image can be useful to debug test failures.
 - id: 'intermediate-push'
   waitFor: ['build']
   name: 'gcr.io/cloud-builders/docker'
@@ -17,13 +16,14 @@ steps:
   - push
   - gcr.io/$PROJECT_ID/rcran-build:temp
 
+# Verify 'convert' (ImageMagick) is available.
 - id: 'test-convert'
-  waitFor: ['intermediate-push'] # otherwise the test failure should stop push.
+  waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
   name: 'kaggle/rcran-build'
   args: ['convert', ' --version']
 
 - id: 'test'
-  waitFor: ['intermediate-push'] # otherwise the test failure should stop push.
+  waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
   name: 'kaggle/rcran-build'
   entrypoint: 'bash'
   args:
@@ -46,7 +46,9 @@ steps:
 images: ['gcr.io/kaggle-images/rcran:$_TAG']
 
 options:
-  machineType: 'N1_HIGHCPU_32' # If change, update Ncpus in package_installs.R
+  # Use of largest GCB instance size in shared pool.
+  # If change, update Ncpus in package_installs.R.
+  machineType: 'N1_HIGHCPU_32'
   diskSizeGb: 1000 # Max disk size. Gives more IOPS.
 
 timeout: 86400s
