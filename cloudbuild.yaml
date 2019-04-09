@@ -18,7 +18,7 @@ steps:
   - gcr.io/$PROJECT_ID/rcran-build:temp
 
 - id: 'test'
-  waitFor: ['build']
+  waitFor: ['intermediate-push'] # otherwise the test failure should stop push.
   name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args:
@@ -31,7 +31,6 @@ steps:
       gcr.io/$PROJECT_ID/rcran-build:temp \
       convert --version
 
-    rm -rf /tmp/rcran-build
     mkdir -p /tmp/rcran-build/tmp
     mkdir -p /tmp/rcran-build/devshm
     mkdir -p /tmp/rcran-build/working
@@ -43,6 +42,8 @@ steps:
       -v /tmp/rcran-build/devshm:/dev/shm \
       gcr.io/$PROJECT_ID/rcran-build:temp \
       /bin/bash -c 'Rscript /input/test_build.R'
+
+    ls -alhR /tmp/rcran-build/working
 
     # Verify expected test_build.R output is present.
     [ -s /tmp/rcran-build/working/plot1.png ]
@@ -60,10 +61,12 @@ steps:
 images: ['gcr.io/kaggle-images/rcran:$_TAG']
 
 options:
-  machineType: 'N1_HIGHCPU_32'
+  machineType: 'N1_HIGHCPU_32' # If change, update Ncpus in package_installs.R
   diskSizeGb: 1000 # Max disk size. Gives more IOPS.
 
 timeout: 86400s
 
 substitutions:
   _TAG: testing # Change to latest for production.
+
+tags: ['rcran']
