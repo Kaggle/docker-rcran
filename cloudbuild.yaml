@@ -20,7 +20,7 @@ steps:
 - id: 'test-convert'
   waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
   name: 'gcr.io/$PROJECT_ID/rcran-build:temp'
-  args: ['convert', ' --version']
+  args: ['convert', '--version']
 
 - id: 'test'
   waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
