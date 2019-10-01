@@ -19,10 +19,14 @@ pkgs <- as.character(packages$Package)
 M <- min(M, length(pkgs))
 
 do_one <- function(repo, pkg){
+  debug <- FALSE
+  if (pkg == "Cairo" || pkg == "repr" || pkg == "IRkernel") {
+    debug <- TRUE
+  }
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=TRUE, repos=repo, dependencies=TRUE),
+    install.packages(pkg, verbose=debug, quiet=!debug, repos=repo, dependencies=TRUE),
     error=h,
     warning=h)
 }
