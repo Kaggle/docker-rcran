@@ -12,6 +12,12 @@ library(parallel)
 unlink("install_log_parallel")
 cl <- makeCluster(M, outfile = "install_log_parallel")
 
+# Install a few common packages upfront to decrease contention below.
+install.packages("testthat", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
+install.packages("leaflet", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
+install.packages("Rcpp", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
+install.packages("repr", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
+
 packages <- as.data.frame(available.packages(repos=REPO))
 existingPackages <- installed.packages()
 
