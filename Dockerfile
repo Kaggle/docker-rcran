@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:3.6.0
+FROM rocker/tidyverse:3.6.2
 
 RUN apt-get update && \
     apt-get install -y imagemagick libudunits2-dev curl libgdal-dev \
