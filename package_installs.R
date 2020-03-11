@@ -3,7 +3,7 @@ REPO <- 'http://ftp.osuosl.org/pub/cran'
 
 # Number of parallel installs. 
 # Experimentally optimized. A too high value (128) crashes.
-M <- 64
+M <- 16
 
 # Make use of all CPUs available to the custom GCB VM size we use.
 options(Ncpus = 32)
