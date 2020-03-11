@@ -5,7 +5,7 @@ steps:
   - build
   - --rm
   - --no-cache
-  - --tag=gcr.io/$PROJECT_ID/rcran-build:temp
+  - --tag=gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID
   - .
 
 # Pushing the intermediate image can be useful to debug test failures.
@@ -14,17 +14,17 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args:
   - push
-  - gcr.io/$PROJECT_ID/rcran-build:temp
+  - gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID
 
 # Verify 'convert' (ImageMagick) is available.
 - id: 'test-convert'
   waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
-  name: 'gcr.io/$PROJECT_ID/rcran-build:temp'
+  name: 'gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID'
   args: ['convert', '--version']
 
 - id: 'test'
   waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
-  name: 'gcr.io/$PROJECT_ID/rcran-build:temp'
+  name: 'gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID'
   entrypoint: 'bash'
   args:
   - '-c'
@@ -40,7 +40,7 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args:
   - tag
-  - gcr.io/$PROJECT_ID/rcran-build:temp
+  - gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID
   - gcr.io/kaggle-images/rcran:$_TAG
 
 images: ['gcr.io/kaggle-images/rcran:$_TAG']
