@@ -31,8 +31,6 @@ existingPackages <- installed.packages()
 library("rmutil")
 f <- read.table(file="packages")
 pkgs <- f[,1]
-print('pkgs:')
-print(pkgs)
 M <- min(M, length(pkgs))
 
 do_one <- function(pkg){
