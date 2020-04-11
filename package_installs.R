@@ -1,34 +1,45 @@
 # Repo to pull package data and metadata from.
-REPO <- 'http://ftp.osuosl.org/pub/cran'
+REPO <- 'http://cran.us.r-project.org'
+options(repos = c("CRAN" = REPO))
+
+options(install.packages.compile.from.source = "never")
 
 # Number of parallel installs. 
 # Experimentally optimized. A too high value (128) crashes.
 M <- 16
 
-# Make use of all CPUs available to the custom GCB VM size we use.
-options(Ncpus = 32)
-
+# Install parallel library.
 library(parallel)
 unlink("install_log_parallel")
-cl <- makeCluster(M, outfile = "install_log_parallel")
 
-# Install a few common packages upfront to decrease contention below.
-install.packages("testthat", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
-install.packages("leaflet", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
-install.packages("Rcpp", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
-install.packages("repr", verbose=TRUE, quiet=FALSE, repos=REPO, dependencies=TRUE)
+# Make use of all CPUs available.
+options(Ncpus = parallel::detectCores())
 
-packages <- as.data.frame(available.packages(repos=REPO))
+# Install a few util/common packages upfront to decrease contention below.
+utilPackages <- c('testthat', 'leaflet', 'Rcpp', 'repr', 'rmutil')
+for (p in utilPackages) {
+  install.packages(p, quiet=FALSE, dependencies=TRUE)
+}
+
+# All packages available in the repo.
+allPackages <- as.data.frame(available.packages(repos=REPO))
+
+# Already installed packages.
 existingPackages <- installed.packages()
 
-pkgs <- as.character(packages$Package)
+# Get list of packages to install from file.
+library("rmutil")
+f <- read.table(file="packages")
+pkgs <- f[,1]
+print('pkgs:')
+print(pkgs)
 M <- min(M, length(pkgs))
 
-do_one <- function(repo, pkg){
+do_one <- function(pkg){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=repo, dependencies=TRUE),
+    install.packages(pkg, verbose=FALSE, quiet=FALSE, dependencies=TRUE),
     error=h,
     warning=h)
 }
@@ -44,7 +55,7 @@ alreadyInstalled <- function(pkg){
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
 print("Generating dependency list...")
-dl <- utils:::.make_dependency_list(pkgs, packages, recursive = TRUE)
+dl <- utils:::.make_dependency_list(pkgs, allPackages, recursive = TRUE)
 dl <- dl[!vecAlreadyInstalled(names(dl))]
 dl <- lapply(dl, function(x) x[x %in% names(dl)])
 lens <- sapply(dl, length)
@@ -54,10 +65,11 @@ total <- length(dl)
 
 print(paste("Ready packages: ", n))
 print(paste("Total packages to install: ", total))
-print(paste("Already installed: ", nrow(existingPackages)))
+
+cl <- makeCluster(M, outfile = "install_log_parallel")
 
 submit <- function(node, pkg) {
-    parallel:::sendCall(cl[[node]], do_one, list(REPO, pkg), tag = pkg)
+    parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
 }
 
 for (i in 1:min(n, M)) {
