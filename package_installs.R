@@ -27,10 +27,13 @@ allPackages <- as.data.frame(available.packages(repos=REPO))
 # Already installed packages.
 existingPackages <- installed.packages()
 
-# Get list of packages to install from file.
+# Get list of packages to install from files.
 library("rmutil")
-f <- read.table(file="packages")
-pkgs <- f[,1]
+p <- read.table(file="packages")
+pu <- read.table(file="packages_users")
+pmerged <- rbind(p, pu)
+pkgs <- pmerged[,1]
+
 M <- min(M, length(pkgs))
 
 do_one <- function(pkg){
