@@ -9,6 +9,7 @@ RUN apt-get update && \
 RUN curl -sSf https://static.rust-lang.org/rustup.sh | sh
 
 ADD packages packages
+ADD packages_users packages_users
 ADD package_installs.R /tmp/package_installs.R
 RUN Rscript /tmp/package_installs.R && \
     bash -c "rm -Rf /tmp/Rtmp*"
