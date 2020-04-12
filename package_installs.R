@@ -6,7 +6,7 @@ options(install.packages.compile.from.source = "never")
 
 # Number of parallel installs. 
 # Experimentally optimized. A too high value (128) crashes.
-M <- 8
+M <- 16
 
 # Make use of all CPUs available.
 options(Ncpus = parallel::detectCores())
@@ -15,9 +15,9 @@ options(Ncpus = parallel::detectCores())
 library(parallel)
 unlink("install_log_parallel")
 
-# Install a few util/common packages upfront to decrease contention below.
-utilPackages <- c('testthat', 'leaflet', 'Rcpp', 'repr', 'rmutil')
-for (p in utilPackages) {
+# Install important packages upfront to decrease contention below.
+packages <- read.table(file="packages")
+for (p in packages) {
   install.packages(p, quiet=FALSE, dependencies=TRUE)
 }
 
@@ -29,10 +29,8 @@ existingPackages <- installed.packages()
 
 # Get list of packages to install from files.
 library("rmutil")
-p <- read.table(file="packages")
-pu <- read.table(file="packages_users")
-pmerged <- rbind(p, pu)
-pkgs <- pmerged[,1]
+p <- read.table(file="packages_users")
+pkgs <- p[,1]
 
 M <- min(M, length(pkgs))
 

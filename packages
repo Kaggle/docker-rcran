@@ -11,6 +11,7 @@ ggplot2
 gtable
 knitr
 labeling
+leaflet
 mime
 munsell
 plyr
@@ -18,12 +19,16 @@ proto
 randomForest
 RColorBrewer
 Rcpp
+Rcpp
 RCurl
 readr
+repr
 reshape2
+rmutil
 scales
 sf
 stringr
+testthat
 tidyr
 xgboost
 zoo
