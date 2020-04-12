@@ -6,7 +6,7 @@ options(install.packages.compile.from.source = "never")
 
 # Number of parallel installs. 
 # Experimentally optimized. A too high value (128) crashes.
-M <- 16
+M <- 8
 
 # Make use of all CPUs available.
 options(Ncpus = parallel::detectCores())
