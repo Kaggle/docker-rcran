@@ -17,8 +17,8 @@ unlink("install_log_parallel")
 
 # Install important packages upfront to decrease contention below.
 packages <- read.table(file="packages")
-for (p in packages) {
-  install.packages(p, quiet=FALSE, dependencies=TRUE)
+for (p in packages[,1]) {
+  install.packages(p, verbose=FALSE, quiet=FALSE, dependencies=TRUE)
 }
 
 # All packages available in the repo.
