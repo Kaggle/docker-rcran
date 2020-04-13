@@ -1,4 +1,5 @@
 Amelia
+BH
 bigrquery
 bitops
 class
@@ -10,10 +11,12 @@ digest
 dplyr
 fable
 foreign
+fslr
 gapminder
 ggplot2
 gridSVG
 gtable
+hrbrthemes
 imager
 IRkernel
 KernSmooth
@@ -28,8 +31,11 @@ mgcv
 mime
 munsell
 nnet
+oro.dicom
+oro.nifti
 plyr
 prevR
+prophet
 proto
 randomForest
 rARPACK
@@ -44,7 +50,9 @@ rgeos
 rmutil
 roxygen2
 rpart
+rstan
 scales
+seewave
 sf
 stringr
 survival
