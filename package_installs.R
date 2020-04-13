@@ -16,7 +16,7 @@ library(parallel)
 unlink("install_log_parallel")
 
 # Install util packages.
-utilPackages <- c('testthat', 'leaflet', 'Rcpp', 'repr', 'rmutil')
+utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat')
 for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE)
 }
