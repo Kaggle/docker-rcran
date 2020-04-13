@@ -19,7 +19,6 @@ proto
 randomForest
 RColorBrewer
 Rcpp
-Rcpp
 RCurl
 readr
 repr
