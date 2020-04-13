@@ -18,7 +18,7 @@ unlink("install_log_parallel")
 # Install important packages upfront to decrease contention below.
 packages <- read.table(file="packages")
 for (p in packages[,1]) {
-  install.packages(p, verbose=FALSE, quiet=FALSE, dependencies=TRUE)
+  install.packages(p, verbose=FALSE, quiet=FALSE)
 }
 
 # All packages available in the repo.
@@ -38,7 +38,7 @@ do_one <- function(pkg){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=FALSE, dependencies=TRUE),
+    install.packages(pkg, verbose=FALSE, quiet=FALSE),
     error=h,
     warning=h)
 }
