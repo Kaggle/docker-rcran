@@ -15,9 +15,9 @@ options(Ncpus = parallel::detectCores())
 library(parallel)
 unlink("install_log_parallel")
 
-# Install important packages upfront to decrease contention below.
-packages <- read.table(file="packages")
-for (p in packages[,1]) {
+# Install util packages.
+utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat')
+for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE)
 }
 
@@ -29,8 +29,10 @@ existingPackages <- installed.packages()
 
 # Get list of packages to install from files.
 library("rmutil")
-p <- read.table(file="packages_users")
-pkgs <- p[,1]
+p <- read.table(file="packages")
+pu <- read.table(file="packages_users")
+pmerged <- rbind(p, pu)
+pkgs <- pmerged[,1]
 
 M <- min(M, length(pkgs))
 
