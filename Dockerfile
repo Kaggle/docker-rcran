@@ -13,3 +13,6 @@ ADD packages_users packages_users
 ADD package_installs.R /tmp/package_installs.R
 RUN Rscript /tmp/package_installs.R && \
     bash -c "rm -Rf /tmp/Rtmp*"
+
+# Used in the `rstats` Jenkins `Docker GPU Build` step to restrict the images being pruned.
+LABEL kaggle-lang=r
