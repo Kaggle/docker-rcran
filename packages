@@ -19,6 +19,7 @@ gtable
 hrbrthemes
 imager
 IRkernel
+jsonlite
 KernSmooth
 knitr
 labeling
