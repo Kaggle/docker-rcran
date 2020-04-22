@@ -43,7 +43,6 @@ tm
 wordcloud
 psych
 RcppRoll
-keras
 MASS
 DT
 skimr
@@ -219,7 +218,6 @@ imager
 anytime
 TTEdata
 future
-tensorflow
 quanteda
 widyr
 shinyjs
