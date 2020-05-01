@@ -1,4 +1,5 @@
 Amelia
+animation
 BH
 bigrquery
 bitops
@@ -27,6 +28,7 @@ knitr
 labeling
 lattice
 leaflet
+magick
 MASS
 Matrix
 mefa
