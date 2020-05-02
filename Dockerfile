@@ -1,7 +1,7 @@
 FROM rocker/tidyverse:3.6.3
 
 RUN apt-get update && \
-    apt-get install -y libmagick libmagick++-dev libudunits2-dev curl libgdal-dev \
+    apt-get install -y imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
     libjpeg-dev libxt-dev
 
 # Install Rust and Cargo. Some R packages requires Rust.
