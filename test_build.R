@@ -5,6 +5,7 @@ Library <- function(libname){
   suppressPackageStartupMessages(library(libname, character.only=TRUE))
 }
 
+Library("animation")
 Library("bigrquery")
 Library("bitops")
 Library("colorspace")
@@ -24,6 +25,7 @@ Library("keras")
 Library("knitr")
 Library("labeling")
 Library("leaflet")
+Library("magick")
 Library("mime")
 Library("munsell")
 Library("plyr")
