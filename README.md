@@ -22,7 +22,7 @@ This build takes ~1 hour. This is why the `--async` option is used.
 
 ## Images
 
-The intermediate image (`gcr.io/$PROJECT_ID/rcran-build:temp`) is pushed to GCR before running the test
+The intermediate image (`gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID`) is pushed to GCR before running the test
 so that a developer can pull the image in order to debug a test failure.
 
 The final image (`gcr.io/kaggle-images/rcran`) is pushed at the end of the build. Make sure you have access
