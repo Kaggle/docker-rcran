@@ -18,7 +18,7 @@ To build this image, use [Google Cloud Build](https://cloud.google.com/cloud-bui
 gcloud builds submit --async
 ```
 
-This build takes O(hours). This is why the `--async` option is used.
+This build takes ~1 hour. This is why the `--async` option is used.
 
 ## Images
 
