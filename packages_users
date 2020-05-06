@@ -1,1167 +1,1021 @@
-tidyverse
-dplyr
-ggplot2
-caret
-lubridate
-lightgbm
-readr
-stringr
-xgboost
-scales
-gridExtra
-tidyr
-corrplot
-RColorBrewer
-ggthemes
-plotly
-randomForest
-forecast
-doParallel
-reshape2
-foreach
-knitr
-plyr
-rpart
-jsonlite
-Metrics
-kableExtra
-ggrepel
-highcharter
-leaflet
-GGally
-magrittr
-viridis
-purrr
-e1071
-forcats
-tibble
-tidytext
-igraph
-car
-grid
-tm
-wordcloud
-psych
-RcppRoll
-MASS
-DT
-skimr
-glmnet
-lme4
-caTools
-repr
-gganimate
-patchwork
-maps
-readxl
-catboost
-pROC
-treemap
-ggridges
-raster
-zoo
-vroom
-broom
-devtools
-Matrix
-ggpubr
-sf
-h2o
-mice
-alluvial
-tseries
-ROCR
-gbm
-ggmap
-corrgram
-rvest
-factoextra
-janitor
-lattice
-xts
-ggforce
-IRdisplay
-tictoc
-cowplot
-MLmetrics
-fst
-ggExtra
-DataExplorer
-rcompanion
-rworldmap
-DMwR
-geosphere
-fpp2
-parallel
-pacman
-rgdal
-Hmisc
-fastDummies
-neuralnet
-SnowballC
-VIM
-bit64
-reshape
-ranger
-arules
-rjson
-caretEnsemble
-rBayesianOptimization
-formattable
-cluster
-sp
-XML
-ggraph
-ROSE
-ggcorrplot
-mlr3
-TTR
-glue
-rattle
-deSolve
-crosstalk
-sigmajs
-boot
-rlang
-stringdist
-countrycode
-doSNOW
-networkD3
-sqldf
-lazyeval
-Amelia
-yardstick
-ggvis
-moments
-smooth
-rstan
-party
-leaps
-fmsb
-recipes
-sna
-network
-plotrix
-intergraph
-flexdashboard
-mlbench
-RSQLite
-compiler
-tree
-rworldxtra
-nnet
-stats
-RSNNS
-wesanderson
-mlr
-class
-ggfortify
-svMisc
-timetk
-png
-mapview
-survival
-shiny
-gmodels
-leafpop
-jtools
-mgcv
-parsnip
-arm
-gplots
-stringi
-quantreg
-furrr
-microbenchmark
-dummies
-rnaturalearthdata
-rnaturalearth
-sandwich
-glm2
-RCurl
-mapdata
-vcd
-htmlwidgets
-topicmodels
-svglite
-doMC
-udpipe
-magick
-timeSeries
-survminer
-C50
-splines
-rgeos
-multcomp
-stars
-ISLR
-maptools
-hrbrthemes
-kernlab
-reticulate
-psychometric
-wordcloud2
-vars
-Rmisc
-tmap
-chron
-mltools
-PRROC
-parallelMap
-ggalluvial
-RWeka
-usmap
-viridisLite
-bigrquery
-imager
-anytime
-TTEdata
-future
-quanteda
-widyr
-shinyjs
-tokenizers
-circlize
-tidymodels
-tibbletime
-PerformanceAnalytics
-klaR
-modelr
-treemapify
-rsample
-naniar
-text2vec
-tsibble
-spatstat
-qdap
-ape
-missForest
-tigris
-fasttime
-pander
-tools
-outliers
-gam
-pracma
-dygraphs
-stopwords
-NbClust
-methods
-dslabs
-dataPreparation
-fpp3
-ggeffects
-ggsignif
-StatMeasures
-fredr
-matrixStats
-nlme
-emplik
-funModeling
-sjmisc
-directlabels
-arulesViz
-tidyquant
-googleVis
-plotmo
-textstem
-logistf
-ggiraph
-tidyselect
-GA
-radarchart
-extrafont
-rPython
-textdata
-DiceKriging
-timeDate
-splus2R
-lmtest
-astsa
-fpp
-httr
-dtw
-Boruta
-refund
-cppRouting
-FactoMineR
-tsfeatures
-hexbin
-fda
-rgexf
-mlrMBO
-mvtnorm
-sentimentr
-here
-precrec
-dtplyr
-pheatmap
-fpc
-rstanarm
-RollingWindow
-scatterplot3d
-rdrop2
-waffle
-recommenderlab
-BSDA
-rhdf5
-pbapply
-plot3Drgl
-imputeTS
-datasets
-writexl
-quantmod
-textrank
-MLeval
-sweep
-NLP
-elasticnet
-lavaan
-syuzhet
-wmtsa
-iterators
-vegan
-nortest
-expss
-gtools
-visNetwork
-textcat
-OneR
-feasts
-tune
-rethinking
-wbstats
-speedglm
-hashmap
-naivebayes
-quadprog
-expsmooth
-partykit
-Rtsne
-labelled
-shinydashboard
-scrubr
-geojsonio
-dict
-lhs
-dendextend
-plot3D
-mlegp
-xtable
-spdep
-clValid
-kknn
-DescTools
-xlsx
-shinythemes
-ggalt
-grpreg
-htmltools
-splitstackshape
-rlist
-base
-xml2
-haven
-memisc
-zip
-prodlim
-ggplotify
-diffusionMap
-WeightedCluster
-TraMineR
-rJava
-animation
-profmem
-tnet
-WDI
-utils
-tmvmixnorm
-restriktor
-mclust
-simputation
-polycor
-osmar
-gghighlight
-mosaic
-shadowtext
-osmdata
-dials
-gtable
-irlba
-SpatioTemporal
-plotROC
-CatEncoders
-scorecard
-mapproj
-foreign
-choroplethrMaps
-InformationValue
-tidygraph
-readstata13
-splusTimeDate
-pwr
-splm
-feather
-conflicted
-gdata
-choroplethr
-ggsci
-doBy
-fable
-qgraph
-openxlsx
-CVTuningCov
-gsubfn
-zipcode
-graphics
-SentimentAnalysis
-VIF
-MuMIn
-babynames
-rmarkdown
-TSA
-pastecs
-dtwclust
-metricsgraphics
-nnfor
-RSentiment
-bbmle
-bibliometrix
-unbalanced
-tfdatasets
-hunspell
-tuneR
-ipred
-d3treeR
-imbalance
-fs
-changepoint
-mlr3learners
-lmerTest
-effects
-R2OpenBUGS
-TMB
-SDMTools
-needs
-RANN
-parallelSVM
-twitteR
-survey
-mxnet
-NoiseFiltersR
-ggvoronoi
-FNN
-EpiEstim
-EIX
-Rtools
-gapminder
-numbers
-gghalves
-drc
-ClustOfVar
-plm
-forecastLM
-irr
-readcsv
-tfruns
-ggdendro
-GPArotation
-epitools
-pryr
-ellipse
-faraway
-elo
-coda
-Rcpp
-pdp
-FeatureHashing
-rminer
-abind
-bnlearn
-remotes
-kohonen
-lsa
-fGarch
-deepboost
-tidybayes
-R6
-gym
-dimRed
-visdat
-nycflights13
-ggiraphExtra
-packcircles
-geojsonR
-dbplyr
-rms
-grplasso
-easypackages
-mc2d
-pdftools
-gvlma
-HRW
-DBI
-dequer
-edgar
-data
-snow
-dbscan
-brms
-jpeg
-gstat
-SuperLearner
-NHMSAR
-ggwordcloud
-WVPlots
-qtlcharts
-wrapr
-filtered_netflix_prize_User
-reinforcelearn
-tidycensus
-self
-pins
-mda
-maditr
-DEoptim
-tsiR
-relaimpo
-NeuralNetTools
-bayesplot
-mixOmics
-MissMech
-matchingR
-proto
-latticeExtra
-ModelMetrics
-utf8
-easyGgplot2
-Ecfun
-M4metalearning
-flextable
-gridBase
-pscl
-ggstance
-cartography
-mi
-heatmaply
-binr
-rio
-rtweet
-JLutils
-rsconnect
-modeest
-proxy
-BBmisc
-OpenImageR
-itsadug
-widgetframe
-arsenal
-openintro
-lsr
-deldir
-miceRanger
-nCov2019
-aod
-arulesNBMiner
-earth
-AER
-latex2exp
-vtreat
-nFactors
-ggbiplot
-slam
-extraDistr
-epiDisplay
-tfds
-seqinr
-ggimage
-AUC
-pls
-qdapTools
-classInt
-tfhub
-PortfolioAnalytics
-textclean
-reposTools
-dataMaid
-lexicon
-infotheo
-dvmisc
-transformr
-ROI
-beepr
-stats4
-tabplot
-clustertend
-descr
-fiftystater
-hflights
-DiceDesign
-lexRankr
-useful
-matrixcalc
-DAAG
-RMySQL
-olsrr
-rENA
-tcltk
-BMR
-carData
-VGAM
-LSAfun
-esquisse
-emmeans
-colorplaner
-adabag
-fBasics
-ngram
-tinytex
-hydroGOF
-rpivotTable
-tau
-vita
-fivethirtyeight
-CCA
-lava
-streamR
-fitdistrplus
-tuneRanger
-superheat
-segmented
-servr
-vip
-LDAvis
-expm
-ltm
-incidence
-urca
-ramify
-quantregForest
-ggmosaic
-ROAuth
-ineq
-rebus
-cleanNLP
-sparklyr
-corpus
-bridgesampling
-miscset
-arrow
-bsts
-CausalImpact
-zeallot
-rgeopat2
-ada
-LiblineaR
-progress
-chinamap
-rrcov
-GoodmanKruskal
-rsm
-vcdExtra
-tstools
-rugarch
-ppcor
-osrm
-EpiDynamics
-sos
-tsne
-taRifx
-cartogram
-qdapRegex
-gbtorch
-varSelRF
-grDevices
-COUNT
-rasterVis
-maptree
-tempdisagg
-RODBC
-R2BayesX
-ggformula
-googlesheets4
-readODS
-stylo
-stargazer
-perturb
-fastAdaboost
-recosystem
-lpSolve
-nls2
-histogram
-tprstats
-lime
-superml
-pso
-fAssets
-openNLP
-fUnitRoots
-loan_statuset
-textreuse
-tableone
-PEIP
-fma
-loo
-xgb
-IRISSeismic
-MaxPro
-rword2vec
-projections
-portes
-ppcc
-ggplot2movies
-corpcor
-shinycssloaders
-coefplot
-apcluster
-RoughSets
-VennDiagram
-janeaustenr
-hms
-sn
-smotefamily
-extraTrees
-regclass
-moderndive
-pliable
-d3heatmap
-solitude
-sentiment
-ForImp
-mnormt
-cloudml
-coronavirus
-nlsrk
-ggbeeswarm
-extrafontdb
-anomalize
-estimatr
-rstatix
-mcbiopi
-TeachingDemos
-biglm
-ExPanDaR
-cld2
-formatR
-randomcoloR
-Cubist
-fastknn
-ROCit
-aTSA
-locfit
-bootnet
-USAboundaries
-sjstats
-pedometrics
-gcookbook
-usdm
-BigVAR
-RJSONIO
-LogicReg
-intrval
-HDInterval
-rjags
-ade4
-dlm
-Zelig
-d3Tree
-astrodatR
-ADMM
-numDeriv
-Ecdat
-Formula
-supernova
-EBImage
-rmutil
-poweRlaw
-ChannelAttribution
-ElemStatLearn
-textrecipes
-fMultivar
-imputeMissings
-FSelector
-mixtools
-agricolae
-rfUtilities
-modes
-lme4qtl
-clustMixType
-rgl
-NetworkComparisonTest
-summarytools
-extracat
-qwraps2
-colorRamps
-textir
-sampling
-tsutils
-vioplot
-BTYD
-threejs
-embarcadero
-flexclust
-mgm
-echarts4r
-sjp
-tweenr
-A3
-usethis
-Seurat
-generalhoslem
-automl
-ggpmisc
-ResourceSelection
-egg
-Kendall
-entropy
-testthat
-dynamicTreeCut
-dlookr
-timereg
-DataCombine
-bigmemory
-digest
-icon
-parlmice
-multcompView
-wooldridge
-curl
-propagate
-Deducer
-ensurer
-inspectdf
-ggspatial
-statebins
-float
-workflows
-XLConnect
-WebPower
-robustbase
-MultiRNG
-extrantsr
-bindrcpp
-CGPfunctions
-pdR
-lda
-lfe
-doFuture
-TSstudio
-V8
-assertr
-HMM
-datarium
-mvinfluence
-tmcn
-pcaPP
-funMoeling
-CORElearn
-INLA
-openair
-TSclust
-Rmixmod
-readtext
-python
-uroot
-pca3d
-ivregEX
-diagram
-SixSigma
-ggscatter
-EpiModel
-ggplot
-spotifyr
-tsbox
-bootstrap
-rggobi
-sjPlot
-filesstrings
-randomNames
-r2d3
-Biobase
-glm
-fusionchartsR
-BiocManager
-epitrix
-officer
-ComplexHeatmap
-gargle
-corrr
-seewave
-RSelenium
-seasonal
-POSIXct
-stm
-tesseract
-caroline
-RandomForest
-ivpack
-genefilter
-selectr
-scater
-growthrates
-seriation
-geofacet
-proj4
-colorspace
-measurements
-httpuv
-nomclust
-tsintermittent
-QuantPsyc
-glmnetUtils
-waterfalls
-gratia
-mitml
-caschrono
-HSAUR
-gramEvol
-package_name
-outbreaks
-hydroPSO
-Rwordseg
-manifestoR
-validate
-ANTsR
-nadiv
-fslr
-KernelKnn
-contrast
-UScensus2000cdp
-urbnmapr
-RTextureMetrics
-frbs
-ks
-diptest
-tscount
-gifski
-copula
-arabicStemR
-pgmm
-ez
-poLCA
-tsfknn
-missMDA
-IRISMustangMetrics
-afex
-sentimentjoy
-correlogram
-libsvm
-nlstools
-lmSupport
-NetData
-earthEngineGrabR
-LaplacesDemon
-spida2
-e104
-qcc
-clusterGeneration
-sparcl
-systemfit
-OpenMPController
-standardize
-memery
-dataQualityR
-rmda
-sm
-textfeatures
-h2O
-psoptim
-lme4ord
-effsize
-intubate
-mboost
-bit
-REmap
-sda
-devEMF
-ggtheme
-SearchTrees
-forecastxgb
-RecordLinkage
-inTrees
-geometry
-kable
-strucchange
-sigmoid
-RNHANES
-markovchain
-lmSubsets
-matrixpls
-kerasR
-mFilter
-gower
-MeanShift
-SOAR
-s20x
-distances
-simpleboot
-BTYDplus
-UBL
-REdaS
-padr
-edgebundleR
-yarrr
-geodist
-xlsxjars
-simtimer
-assertive
-spaa
-normtest
-VineCopula
-dial
-sparkxgb
-hash
-prediction
-geepack
-titanic
-strings
-av
-bestglm
-rcdimple
-onewaytests
-skmeans
-UserNetR
-adagio
-distcrete
-earlyR
-paletter
-fitnmr
-arulesSequences
-LDPD
-medrxivr
-Simpsons
-DALEX
-mltest
-urbnthemes
-Rgraphviz
-semPlot
-fastICA
-pageviews
-fields
-msm
-verification
-dse
-imputation
-ts
-bsselectR
-rbokeh
-ggjoy
-fanplot
-deconvolveR
-sem
-map
-arulezviz
-opencv
-Unicode
-mdsr
-mcmc
-themis
-BAS
-lvplot
-amap
-fdth
-HH
-lars
-EnvStats
-cellWise
-dtree
-ggthemr
-ggplotly2
-cranlogs
-insol
-probably
-textTinyR
-StatMatch
-roll
-scout
-pwt9
-MESS
-ggpointdensity
-dashboard
-daisy
-gender
-excel
-satellite
-pubMR
-randomForestSRC
-JOUSBoost
-brew
-spData
-OAIHarvester
-colordistance
-tigerstats
-climbeR
-penalized
-pathifier
-gtrendsR
-rockchalk
-cmprsk
-crossval
-rmgarch
-dummy
-gsheet
-qdapDictionaries
-listviewer
-optiRum
-mailR
-rsvd
-showtext
-knncat
-mvnormtest
-qualtRics
-biotools
-clusterSim
-dataset
-elmNN
-MatchIt
-pandas
-generics
-plot_ly
-matlib
-RImagePalette
-glmtree
-miscTools
-IMAGE
-UsingR
-woeBinning
-correlationfunnel
-hnp
-SciViews
-fuzzyjoin
-RTransferEntropy
-AppliedPredictiveModeling
-sparsio
-extRemes
-thief
-glmulti
-mapmisc
-cowsay
-magittr
-glmmTMB
-scam
-lsmeans
-politicaldata
-smbinning
-ellipsis
-Rccp
-biclust
-mvoutlier
-RcmdrMisc
-ImaginR
-rquery
-lgbm
-huxtable
-matlab
-ordinal
-calibrate
-csv
-shapefiles
-compare
-TSP
-ahpsurvey
-socialmixr
-inline
-cmaes
-DiscriMiner
-airportr
-geoR
+  tidyverse                  
+  dplyr                      
+  ggplot2                    
+  lubridate                  
+  caret                      
+  lightgbm                   
+  doParallel                 
+  foreach                    
+  stringr                    
+  tidyr                      
+  readr                      
+  gridExtra                  
+  xgboost                    
+  forecast                   
+  plotly                     
+  scales                     
+  randomForest               
+  Metrics                    
+  ggthemes                   
+  reshape2                   
+  RColorBrewer               
+  corrplot                   
+  knitr                      
+  jsonlite                   
+  rpart                      
+  plyr                       
+  RcppRoll                   
+  MASS                       
+  leaflet                    
+  kableExtra                 
+  purrr                      
+  viridis                    
+  GGally                     
+  igraph                     
+  highcharter                
+  e1071                      
+  catboost                   
+  keras                      
+  fst                        
+  psych                      
+  magrittr                   
+  zoo                        
+  car                        
+  DT                         
+  repr                       
+  glmnet                     
+  h2o                        
+  ggrepel                    
+  ggpubr                     
+  readxl                     
+  grid                       
+  tidytext                   
+  janitor                    
+  forcats                    
+  caTools                    
+  maps                       
+  gganimate                  
+  tm                         
+  tictoc                     
+  tibble                     
+  raster                     
+  IRdisplay                  
+  sf                         
+  pROC                       
+  factoextra                 
+  patchwork                  
+  wordcloud                  
+  prophet                    
+  xts                        
+  geosphere                  
+  devtools                   
+  cowplot                    
+  parallel                   
+  broom                      
+  gbm                        
+  rvest                      
+  DataExplorer               
+  tseries                    
+  treemap                    
+  fastDummies                
+  ISLR                       
+  rcompanion                 
+  reshape                    
+  rjson                      
+  mice                       
+  Matrix                     
+  rworldmap                  
+  smooth                     
+  rgdal                      
+  lattice                    
+  VIM                        
+  ggridges                   
+  ROCR                       
+  deSolve                    
+  skimr                      
+  boot                       
+  leaps                      
+  sqldf                      
+  sp                         
+  bit64                      
+  ggmap                      
+  mlr                        
+  rattle                     
+  doSNOW                     
+  lme4                       
+  alluvial                   
+  ggcorrplot                 
+  ggforce                    
+  RSNNS                      
+  networkD3                  
+  arules                     
+  usmap                      
+  fpp2                       
+  Amelia                     
+  sigmajs                    
+  mlr3                       
+  intergraph                 
+  DMwR                       
+  rstan                      
+  hrbrthemes                 
+  Hmisc                      
+  caretEnsemble              
+  jtools                     
+  stringdist                 
+  mlbench                    
+  rnaturalearth              
+  vroom                      
+  wesanderson                
+  ggraph                     
+  glue                       
+  formattable                
+  anytime                    
+  neuralnet                  
+  mgcv                       
+  ranger                     
+  ROSE                       
+  TTR                        
+  rnaturalearthdata          
+  sna                        
+  stats                      
+  magick                     
+  stringi                    
+  cluster                    
+  naniar                     
+  XML                        
+  network                    
+  htmlwidgets                
+  moments                    
+  SnowballC                  
+  leafpop                    
+  MLmetrics                  
+  ggExtra                    
+  rworldxtra                 
+  reticulate                 
+  fmsb                       
+  RSQLite                    
+  crosstalk                  
+  pracma                     
+  timetk                     
+  InformationValue           
+  party                      
+  ggvis                      
+  tidymodels                 
+                             
+  RCurl                      
+  furrr                      
+  rgeos                      
+  splines                    
+  heplots                    
+  wordcloud2                 
+  directlabels               
+  numDeriv                   
+  klaR                       
+  NbClust                    
+  tree                       
+  lmtest                     
+  gplots                     
+  future                     
+  kernlab                    
+  widyr                      
+  gmodels                    
+  httr                       
+  gghighlight                
+  pacman                     
+  nnet                       
+  flexdashboard              
+  tsibble                    
+  recipes                    
+  imager                     
+  mapview                    
+  chron                      
+  fpp3                       
+  dummies                    
+  visNetwork                 
+  GA                         
+  plotrix                    
+  gam                        
+  topicmodels                
+  spatstat                   
+  psychometric               
+  countrycode                
+  stars                      
+  udpipe                     
+  class                      
+  modelr                     
+  png                        
+  doMC                       
+  RollingWindow              
+  ggfortify                  
+  tmap                       
+  FactoMineR                 
+  pander                     
+  rlang                      
+  timeSeries                 
+  mltools                    
+  bigrquery                  
+  fpp                        
+  rsample                    
+  quantreg                   
+  shinyjs                    
+  circlize                   
+  maptools                   
+  expss                      
+  RcppCNPy                   
+  PRROC                      
+  hflights                   
+  tigris                     
+  labelled                   
+  ggiraph                    
+  dataPreparation            
+  tsfeatures                 
+  utils                      
+  tidygraph                  
+  shiny                      
+  parallelMap                
+  Rmisc                      
+  svMisc                     
+  textdata                   
+  ape                        
+  corrgram                   
+  here                       
+  fasttime                   
+  matrixStats                
+  astsa                      
+  mondate                    
+  pscl                       
+  lavaan                     
+  wmtsa                      
+  tibbletime                 
+  quanteda                   
+  C50                        
+  FSelectorRcpp              
+  nlme                       
+  zip                        
+  dtw                        
+  tidyselect                 
+  openxlsx                   
+  emplik                     
+  lazyeval                   
+  RANN                       
+  logistf                    
+  foreign                    
+  survey                     
+  mlrMBO                     
+  vars                       
+  rio                        
+  feather                    
+  Boruta                     
+  rdrop2                     
+  DiceKriging                
+  brms                       
+  gvlma                      
+  cppRouting                 
+  xml2                       
+  imbalance                  
+  missForest                 
+  priceR                     
+  precrec                    
+  plot3D                     
+  rgexf                      
+  text2vec                   
+  dygraphs                   
+  yardstick                  
+  googleVis                  
+  imputeTS                   
+  outliers                   
+  dslabs                     
+  ggplotify                  
+  robotstxt                  
+  textstem                   
+  vcd                        
+  splusTimeDate              
+  simputation                
+  treemapify                 
+  CatEncoders                
+  BSDA                       
+  changepoint                
+  rstanarm                   
+  extrafont                  
+  plot3Drgl                  
+  stargazer                  
+  networkDynamic             
+  stopwords                  
+  arsenal                    
+  partykit                   
+  plm                        
+  statnet                    
+  pheatmap                   
+  textrank                   
+  mapdata                    
+  plotmo                     
+  CCA                        
+  ggsci                      
+  heatmaply                  
+  tokenizers                 
+  qdap                       
+  nortest                    
+  iterators                  
+  stats4                     
+  expsmooth                  
+  rethinking                 
+  nlstools                   
+  olsrr                      
+  earth                      
+  arulesViz                  
+  feasts                     
+  R6                         
+  fuzzyjoin                  
+  fredr                      
+  rnaturalearthhires         
+  hashmap                    
+  sentimentr                 
+  dtplyr                     
+  rms                        
+  gdata                      
+  RWeka                      
+  mvtnorm                    
+  wbstats                    
+  dtwclust                   
+  plotROC                    
+  base                       
+  spdep                      
+  survival                   
+  VennDiagram                
+  writexl                    
+  adabag                     
+  gtools                     
+  viridisLite                
+  rJava                      
+  hexbin                     
+  ROCit                      
+  multcomp                   
+  HDInterval                 
+  smotefamily                
+  ggtext                     
+  BAS                        
+  ggspatial                  
+  rlist                      
+  fpc                        
+  margins                    
+  bayesplot                  
+  vegan                      
+  diffusionMap               
+  profmem                    
+  osmar                      
+  collapsibleTree            
+  prodlim                    
+  osmdata                    
+  faraway                    
+  OneR                       
+  SpatioTemporal             
+  shadowtext                 
+  modeest                    
+  WDI                        
+  readcsv                    
+  useful                     
+  kknn                       
+  tnet                       
+  mosaic                     
+  datasets                   
+  splitstackshape            
+  Rtsne                      
+  mclust                     
+  radarchart                 
+  clValid                    
+  descr                      
+  DESeq2                     
+  qdapRegex                  
+  splm                       
+  scatterplot3d              
+  xtable                     
+  gridtext                   
+  irr                        
+  PerformanceAnalytics       
+  parsnip                    
+  irlba                      
+  qtlcharts                  
+  loo                        
+  ClustOfVar                 
+  xlsx                       
+  sandwich                   
+  rmarkdown                  
+  maptree                    
+  estimatr                   
+  graphics                   
+  ggalluvial                 
+  pwr                        
+  NHMSAR                     
+  ggalt                      
+  drc                        
+  dendextend                 
+  textfeatures               
+  bibliometrix               
+  haven                      
+  tau                        
+  dichromat                  
+  scrubr                     
+  funModeling                
+  geojsonR                   
+  babynames                  
+  metricsgraphics            
+  gapminder                  
+  FNN                        
+  bbmle                      
+  tidyquant                  
+  mboost                     
+  ergm                       
+  tfdatasets                 
+  sjmisc                     
+  EpiEstim                   
+  mlr3learners               
+  AppliedPredictiveModeling  
+  pastecs                    
+  incidence                  
+  tfruns                     
+  transformr                 
+  MuMIn                      
+  corpcor                    
+  d3treeR                    
+  ipred                      
+  TMB                        
+  polycor                    
+  rENA                       
+  NoiseFiltersR              
+  lmerTest                   
+  huxtable                   
+  limma                      
+  quantmod                   
+  permute                    
+  genefilter                 
+  Rtools                     
+  Cubist                     
+  gghalves                   
+  NLP                        
+  memisc                     
+  tuneR                      
+  topGO                      
+  fs                         
+  gsubfn                     
+  spData                     
+  lsa                        
+  lwgeom                     
+  naivebayes                 
+  vcdExtra                   
+  glm2                       
+  proto                      
+  GEOquery                   
+  ellipse                    
+  pryr                       
+  GPArotation                
+  geofacet                   
+  ggsignif                   
+  SentimentAnalysis          
+  probably                   
+  densenet                   
+  EIX                        
+  ModelMetrics               
+  hts                        
+  elasticnet                 
+  deepboost                  
+  pdp                        
+  quadprog                   
+  parallelSVM                
+  DEoptim                    
+  abind                      
+  syuzhet                    
+  visdat                     
+  tidybayes                  
+  restriktor                 
+  remotes                    
+  Rcpp                       
+  methods                    
+  dimRed                     
+  PortfolioAnalytics         
+  RWekajars                  
+  shinydashboard             
+  mapproj                    
+  sjlabelled                 
+  HRW                        
+  ggtextures                 
+  conflicted                 
+  mda                        
+  mc2d                       
+  fastAdaboost               
+  openair                    
+  seqinr                     
+  gtable                     
+  fGarch                     
+  bnlearn                    
+  tmvmixnorm                 
+  kohonen                    
+  beepr                      
+  CORElearn                  
+  onehot                     
+  pls                        
+  openintro                  
+  gifski                     
+  zeallot                    
+  nls2                       
+  relaimpo                   
+  self                       
+  mixOmics                   
+  SuperLearner               
+  wrapr                      
+  LiblineaR                  
+  snow                       
+  dict                       
+  ppcor                      
+  vip                        
+  refund                     
+  pins                       
+  pdftools                   
+  packcircles                
+  easyGgplot2                
+  solitude                   
+  mxnet                      
+  imputeMissings             
+  AER                        
+  Ecfun                      
+  itsadug                    
+  matchingR                  
+  gstat                      
+  widgetframe                
+  binr                       
+  M4metalearning             
+  ggwordcloud                
+  ineq                       
+  tsiR                       
+  dbscan                     
+  dbarts                     
+  emmeans                    
+  textclean                  
+  fda                        
+  ElemStatLearn              
+  perturb                    
+  ggstance                   
+  miceRanger                 
+  rsconnect                  
+  qgraph                     
+  rBayesianOptimization      
+  unbalanced                 
+  TSA                        
+  classInt                   
+  CVTuningCov                
+  cartography                
+  arulesNBMiner              
+  ada                        
+  textcat                    
+  JLutils                    
+  mpath                      
+  import                     
+  extraDistr                 
+  compare                    
+  NeuralNetTools             
+  reposTools                 
+  d3heatmap                  
+  projections                
+  robustbase                 
+  htmltools                  
+  lexicon                    
+  fivethirtyeight            
+  epiDisplay                 
+  clustMixType               
+  tfhub                      
+  tfds                       
+  tstools                    
+  countreg                   
+  UBL                        
+  mlogit                     
+  fBasics                    
+  bartMachine                
+  crayon                     
+  dvmisc                     
+  GoodmanKruskal             
+  rebus                      
+  ggimage                    
+  ggiraphExtra               
+  lsr                        
+  nFactors                   
+  ggpmisc                    
+  usdm                       
+  DAAG                       
+  BMR                        
+  mlegp                      
+  lexRankr                   
+  tableone                   
+  latex2exp                  
+  arm                        
+  grpreg                     
+  osrm                       
+  hunspell                   
+  dbplyr                     
+  scorecard                  
+  DBI                        
+  hydroGOF                   
+  LSAfun                     
+  lhs                        
+  nloptr                     
+  epitrix                    
+  latticeExtra               
+  verification               
+  propogate                  
+  DescTools                  
+  ngram                      
+  KFAS                       
+  tinytex                    
+  lime                       
+  superheat                  
+  tvd                        
+  mitools                    
+  qualtRics                  
+  gt                         
+  BBmisc                     
+  dse                        
+  rSymPy                     
+  aod                        
+  ltm                        
+  esquisse                   
+  rgeopat2                   
+  DWD                        
+  gbtorch                    
+  lars                       
+  d3wordcloud                
+  animation                  
+  fma                        
+  StatMeasures               
+  epitools                   
+  EpiDynamics                
+  carData                    
+  outbreaks                  
+  semTools                   
+  lavaanPlot                 
+  R2BayesX                   
+  shinycssloaders            
+  rfUtilities                
+  recosystem                 
+  mccr                       
+  ROI                        
+  progress                   
+  EdSurvey                   
+  rminer                     
+  rasterVis                  
+  googlesheets4              
+  intsvy                     
+  twitteR                    
+  dataMaid                   
+  survminer                  
+  sparsio                    
+  distcrete                  
+  needs                      
+  cartogram                  
+  fable                      
+  servr                      
+  RSentiment                 
+  ggdendro                   
+  histogram                  
+  textreuse                  
+  COUNT                      
+  loan_statuset              
+  vtreat                     
+  ggmosaic                   
+  tsne                       
+  functional                 
+  extraTrees                 
+  nlsrk                      
+  jpeg                       
+  fastmatch                  
+  infer                      
+  pliable                    
+  coronavirus                
+  funMoeling                 
+  mixtools                   
+  LDAvis                     
+  shinythemes                
+  SUE                        
+  StatPerMeCo                
+  kerndwd                    
+  tvR                        
+  bestglm                    
+  apcluster                  
+  regclass                   
+  dlm                        
+  recommenderlab             
+  ndtv                       
+  glm                        
+  gratia                     
+  choroplethrMaps            
+  infotheo                   
+  proustr                    
+  truncnorm                  
+  ggbiplot                   
+  timeDate                   
+  tsintermittent             
+  RSeleniumHelpers           
+  gdalUtils                  
+  package_name               
+  ParamHelpers               
+  VGAM                       
+  anomalize                  
+  sparklyr                   
+  wooldridge                 
+  googledrive                
+  splus2R                    
+  usethis                    
+  python                     
+  ramify                     
+  TTEdata                    
+  choroplethr                
+  workflows                  
+  Factoshiny                 
+  corrr                      
+  Matching                   
+  echarts4r                  
+  urca                       
+  unikn                      
+  dials                      
+  grDevices                  
+  embarcadero                
+  generalhoslem              
+  pedometrics                
+  OpenImageR                 
+  statsr                     
+  ADMM                       
+  tcltk                      
+  intrval                    
+  dlookr                     
+  rjags                      
+  rhdf5                      
+  readODS                    
+  BigVAR                     
+  Formula                    
+  nycflights13               
+  filesstrings               
+  ggformula                  
+  greybox                    
+  BaylorEdPsych              
+  BTYD                       
+  tsutils                    
+  rtweet                     
+  rgl                        
+  markovchain                
+  bsts                       
+  supernova                  
+  rbokeh                     
+  readstata13                
+  qrnn                       
+  readtext                   
+  icon                       
+  LTRCtrees                  
+  rstatix                    
+  pgmm                       
+  textrecipes                
+  spotifyr                   
+  DataCombine                
+  webshot                    
+  survRM2                    
+  mitml                      
+  rtiff                      
+  EpiModel                   
+  arabicStemR                
+  tiff                       
+  poLCA                      
+  calibrate                  
+  taRifx                     
+  gmapsdistance              
+  lsmeans                    
+  expm                       
+  curl                       
+  threejs                    
+  diagram                    
+  colourpicker               
+  manifestoR                 
+  openNLP                    
+  summarytools               
+  officer                    
+  crossval                   
+  scorer                     
+  QuantPsyc                  
+  ClusterR                   
+  mvinfluence                
+  ChainLadder                
+  purrrlyr                   
+  thief                      
+  linelist                   
+  schrute                    
+  TSstudio                   
+  glmulti                    
+  rpivotTable                
+  censusapi                  
+  markdown                   
+  pbapply                    
+  fracdiff                   
+  fusionchartsR              
+  edgar                      
+  WeightedCluster            
+  nnfor                      
+  tidylog                    
+  MLeval                     
+  tabulizer                  
+  RODBC                      
+  geojsonio                  
+  testthat                   
+  RSocrata                   
+  TraMineR                   
+  growthrates                
+  simtimer                   
+  doBy                       
+  WebPower                   
+  slam                       
+  pwt9                       
+  R0                         
+  frbs                       
+  mltest                     
+  propagate                  
+  tempdisagg                 
+  miscset                    
+  effects                    
+  tsbox                      
+  WVPlots                    
+  datarium                   
+  zipcode                    
+  grf                        
+  multcompView               
+  invgamma                   
+  manipulateWidget           
+  tabplot                    
+  nonlinearTseries           
+  shinyWidgets               
+  modelgrid                  
+  gramEvol                   
+  totalcensus                
+  tune                       
+  randomforest               
+  missRanger                 
+  Epi                        
+  aTSA                       
+  amap                       
+  missMDA                    
+  fanplot                    
+  insol                      
+  AnnotationHub              
+  earthEngineGrabR           
+  DiscriMiner                
+  sjPlot                     
+  rugarch                    
+  SpecsVerification          
+  dataexplorer               
+  geoR                       
+  performanceEstimation      
+  neuropsychology            
+  socialmixr                 
+  skmeans                    
+  PEIP                       
+  TSclust                    
+  curatedMetagenomicData     
+  showtext                   
+  ggpointdensity             
+  tissuesGeneExpression      
+  ggm                        
+  gsheet                     
+  SingleR                    
+  sampling                   
+  sn                         
+  modeltools                 
+  iml                        
+  matrixcalc                 
+  dashboard                  
+  sjp                        
+  medrxivr                   
+  ordinal                    
+  fitdistrplus               
+  poweRlaw                   
+  lpSolve                    
+  excel                      
+  doFuture                   
+  plsVarSel                  
+  janeaustenr                
+  tscount                    
+  streamR                    
+  rockchalk                  
+  FSelector                  
+  strucchange                
+  xlsxjars                   
+  DALEX                      
+  tis                        
+  biglm                      
+  orcutt                     
+  rsm                        
+  MeanShift                  
+  forecastxgb                
+  Rccp                       
+  ez                         
+  bit                        
+  alphavantager              
+  deldir                     
+  waffle                     
+  predictNLS                 
+  scater                     
+  reldist                    
+  gridBase                   
+  clusterCrit                
+  extRemes                   
+  r2d3                       
+  scout                      
+  themis                     
+  GSEABase                   
+  tsfknn                     
+  mnormt                     
+  rmutil                     
+  scholar                    
+  lawstat                    
+  knncat                     
+  cld2                       
+  measurements               
+  speedglm                   
+  map                        
+  downloader                 
+  emdbook                    
+  tsna                       
+  rsvd                       
+  profvis                    
+  installr                   
+  patternize                 
+  mvnormtest                 
+  varSelRF                   
+  tools                      
+  rmdformats                 
+  ExPanDaR                   
+  ROAuth                     
+  lmSupport                  
+  bridgesampling             
+  hchinamap                  
+  systemfit                  
+  ade4                       
+  av                         
+  extrafontdb                
+  titanic                    
+  fAssets                    
+  sigmoid                    
+  matlib                     
+  flexclust                  
+  easypackages               
+  biotools                   
+  bootstrap                  
+  plot_ly                    
+  hash                       
+  earlyR                     
+  bigtime                    
+  semPlot                    
+  drat                       
+  qpcR                       
+  dummy                      
+  inTrees                    
+  climbeR                    
+  ga                         
+  ggplotly2                  
+  scran                      
+  mva                        
+  vita                       
+  digest                     
+  breakDown                  
+  pcaGoPromoter              
+  geodist                    
+  SixSigma                   
+  geometry                   
+  AUCell                     
+  bladderbatch               
+  FunCluster                 
+  distances                  
+  clusterGeneration          
+  ivpack                     
+  scam                       
+  mdsr                       
+  stabs                      
+  proxy                      
+  mvoutlier                  
+  ahpsurvey                  
+  clue                       
+  XLConnect                  
+  FactoInvestigate           
+  extracat                   
+  RQuantLib                  
+  EBImage                    
+  plumber                    
+  ica                        
+  odbc                       
+  logisticPCA                
+  stm                        
+  ImageMagick                
+  PortfolioAnlytics          
+  processx                   
+  BTYDplus                   
+  RJSONIO                    
+  inline                     
+  dismo                      
+  elmNN                      
+  inspectdf                  
+  rARPACK                    
+  fMultivar                  
+  EnvStats                   
+  sva                        
