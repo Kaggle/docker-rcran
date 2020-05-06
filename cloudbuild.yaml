@@ -1,28 +1,6 @@
 steps:
 
-# Fetch packages used by users from BigQuery.
-# The `bq` image has been built previously in the project:
-# $ git clone https://github.com/GoogleCloudPlatform/cloud-builders-community.git
-# $ cd cloud-builders-community/bq
-# $ gcloud builds submit
-- id: 'fetch-packages'
-  name: 'gcr.io/$PROJECT_ID/bq'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    set -eo pipefail
-    bq query \
-    --use_legacy_sql=false \
-    --format=sparse \
-    'SELECT PackageName FROM `kaggle-infra-analytics.kaggle_derived.KernelBlobsRPackages`' \
-    >&1 bq_response
-    # Ignore tensorflow which is installed in docker-rstats image.
-    # Also ignore the headers of the search results.
-    cat bq_response | grep -v 'tensorflow' | awk 'NR>2' > packages_users
-
 - id: 'build'
-  waitFor: ['fetch-packages']
   name: 'gcr.io/cloud-builders/docker'
   args:
   - build

@@ -1,0 +1,80 @@
+# This build fetches R packages used on Kaggle and updates
+# the `packages_users` file on GitHub.
+
+# In order for this build to have write access to the repo, a deploy key
+# has been created and added to the repo.
+# - doc: https://cloud.google.com/cloud-build/docs/access-private-github-repos
+# - deploy key: https://github.com/Kaggle/docker-rcran/settings/keys
+
+steps:
+
+# Get the rsa key file from Secret Manager.
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ '-c', 'gcloud secrets versions access latest --secret=rcran-id-rsa > /root/.ssh/id_github' ]
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Set up git with key and domain.
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    chmod 600 /root/.ssh/id_github
+    cat <<EOF >/root/.ssh/config
+    Hostname github.com
+    IdentityFile /root/.ssh/id_github
+    EOF
+    ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+    git config --global user.email "robot@kaggle.com"
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Pull the repository from GitHub.
+- name: 'gcr.io/cloud-builders/git'
+  args:
+  - clone
+  - git@github.com:Kaggle/docker-rcran.git
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Fetch the packages from BigQuery.
+# The `bq` image has been built previously in the project:
+# $ git clone https://github.com/GoogleCloudPlatform/cloud-builders-community.git
+# $ cd cloud-builders-community/bq
+# $ gcloud builds submit
+- name: 'gcr.io/$PROJECT_ID/bq'
+  entrypoint: 'bash'
+  dir: docker-rcran
+  args:
+  - '-c'
+  - |
+    set -eo pipefail
+    bq query \
+    --use_legacy_sql=false \
+    --format=sparse \
+    --max_rows=100000 \
+    'SELECT PackageName FROM `kaggle-infra-analytics.kaggle_derived_no_pii.KernelBlobsRPackagesLast60days`' \
+    > bq_response
+    # Remove leading whitespaces
+    sed "s/^[ \t]*//" -i bq_response
+    # Ignore tensorflow which is installed in docker-rstats image.
+    # Also ignore the headers of the search results.
+    cat bq_response | grep -v 'tensorflow' | awk 'NR>2' > packages_users
+
+# Commit the file to GitHub.
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  dir: docker-rcran
+  args:
+  - '-c'
+  - |
+    git commit -am "Update the list of R packages used on Kaggle ($(wc -l packages_users | awk '{ print $1 }') packages)"
+    git push -u origin master
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
