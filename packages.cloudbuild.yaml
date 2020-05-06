@@ -59,7 +59,7 @@ steps:
     --format=sparse \
     --max_rows=100000 \
     'SELECT PackageName FROM `kaggle-infra-analytics.kaggle_derived_no_pii.KernelBlobsRPackagesLast60days`' \
-    > bq_response
+    > bq_response || cat bq_response
     # Remove leading whitespaces
     sed "s/^[ \t]*//" -i bq_response
     # Ignore tensorflow which is installed in docker-rstats image.
