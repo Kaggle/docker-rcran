@@ -58,7 +58,7 @@ steps:
     --use_legacy_sql=false \
     --format=sparse \
     --max_rows=100000 \
-    'SELECT PackageName FROM `kaggle-infra-analytics.kaggle_derived_no_pii.KernelBlobsRPackagesLast60days`' \
+    'SELECT PackageName FROM `kaggle-infra-analytics.kaggle_derived_no_pii.KernelBlobsRPackagesLast60days` ORDER BY PackageName' \
     > bq_response || (cat bq_response && exit 1)
     # Remove leading whitespaces
     sed "s/^[ \t]*//" -i bq_response
