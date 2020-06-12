@@ -24,7 +24,6 @@ Cairo
 CatEncoders                
 ChainLadder                
 ClustOfVar                 
-ClusterR                   
 CompQuadForm               
 Cubist                     
 DAAG                       
@@ -108,7 +107,6 @@ ParamHelpers
 PerformanceAnalytics       
 PortfolioAnalytics         
 PortfolioAnlytics          
-R0                         
 R6                         
 RANN                       
 RBioFormats                
@@ -215,6 +213,7 @@ breakDown
 bridgesampling             
 brms                       
 broom                      
+ca                         
 caTools                    
 calibrate                  
 car                        
@@ -222,7 +221,6 @@ carData
 caret                      
 caretEnsemble              
 catboost                   
-censusapi                  
 changepoint                
 choroplethr                
 choroplethrMaps            
@@ -299,7 +297,6 @@ dtplyr
 dtw                        
 dtwclust                   
 dummies                    
-dummy                      
 dygraphs                   
 dynlm                      
 e1071                      
@@ -312,7 +309,6 @@ elasticnet
 ellipse                    
 elo                        
 emdbook                    
-emmeans                    
 epiDisplay                 
 epitrix                    
 ergm                       
@@ -369,7 +365,6 @@ fracdiff
 fredr                      
 fst                        
 funModeling                
-funMoeling                 
 functional                 
 furrr                      
 future                     
@@ -460,7 +455,6 @@ gtrendsR
 gutenbergr                 
 gvlma                      
 h2o                        
-hash                       
 haven                      
 hchinamap                  
 heatmaply                  
@@ -532,6 +526,7 @@ lcmm
 leaflet                    
 leafpop                    
 leaps                      
+learnr                     
 lexicon                    
 lhs                        
 lib_meta                   
@@ -647,7 +642,6 @@ opera
 optimx                     
 orcutt                     
 osmdata                    
-outbreaks                  
 outliers                   
 pROC                       
 package_name               
@@ -931,7 +925,6 @@ tmap
 tokenizers                 
 topGO                      
 topicmodels                
-totalcensus                
 transformr                 
 tree                       
 treemap                    
@@ -954,7 +947,6 @@ tuneR
 tvR                        
 tvd                        
 tweedie                    
-twitteR                    
 udpipe                     
 unbalanced                 
 unikn                      
