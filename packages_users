@@ -6,7 +6,6 @@ Amelia
 AnnotationHub              
 AppliedPredictiveModeling  
 BAS                        
-BB                         
 BBmisc                     
 BSDA                       
 BTM                        
@@ -36,6 +35,7 @@ DT
 DWD                        
 DataCombine                
 DataExplorer               
+Deducer                    
 DescTools                  
 DiagrammeR                 
 DiceKriging                
@@ -90,7 +90,6 @@ MetricsWeighted
 ModelMetrics               
 MortalitySmooth            
 MuMIn                      
-MultiRNG                   
 NHMSAR                     
 NLP                        
 NMF                        
@@ -125,6 +124,7 @@ RSQLite
 RSeleniumHelpers           
 RSocrata                   
 RSpectra                   
+RStata                     
 RTextTools                 
 RWeka                      
 RWekajars                  
@@ -142,6 +142,7 @@ Rtsne
 SDMTools                   
 SHAPforxgboost             
 SUE                        
+SciViews                   
 SearchTrees                
 SentimentAnalysis          
 SingleR                    
@@ -417,6 +418,7 @@ ggrepel
 ggridges                   
 ggsci                      
 ggspatial                  
+ggstatsplot                
 ggtext                     
 ggtextures                 
 ggthemes                   
@@ -455,6 +457,7 @@ gtrendsR
 gutenbergr                 
 gvlma                      
 h2o                        
+hablar                     
 haven                      
 hchinamap                  
 heatmaply                  
@@ -573,6 +576,7 @@ mco
 mctest                     
 mda                        
 mdsr                       
+metRology                  
 methods                    
 metrics                    
 mgcv                       
@@ -637,6 +641,7 @@ onehot
 openNLP                    
 openair                    
 openintro                  
+openssl                    
 openxlsx                   
 opera                      
 optimx                     
@@ -795,12 +800,13 @@ rworldmap
 rworldxtra                 
 saccades                   
 sampling                   
+sand                       
 sandwich                   
+sarima                     
 sas7bdat                   
 scales                     
 scater                     
 scatterplot3d              
-scholar                    
 schrute                    
 scorecard                  
 scorecardModelUtils        
@@ -823,7 +829,6 @@ shinydashboard
 shinyjs                    
 shinythemes                
 showtext                   
-sigmajs                    
 signal                     
 simputation                
 simstudy                   
@@ -832,7 +837,6 @@ sjlabelled
 sjmisc                     
 skimr                      
 slider                     
-sm                         
 smbinning                  
 smooth                     
 smotefamily                
@@ -894,6 +898,7 @@ textfeatures
 textmineR                  
 textrank                   
 textrecipes                
+textreg                    
 textshape                  
 textstem                   
 tfdatasets                 
@@ -926,6 +931,7 @@ tokenizers
 topGO                      
 topicmodels                
 transformr                 
+translateR                 
 tree                       
 treemap                    
 treemapify                 
