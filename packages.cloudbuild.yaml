@@ -79,4 +79,4 @@ steps:
   - name: 'ssh'
     path: /root/.ssh
 
-tags: ['rcran', 'packages']
+tags: ['rcran', 'packages', 'notification']
