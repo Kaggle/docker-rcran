@@ -56,4 +56,4 @@ timeout: 86400s
 substitutions:
   _TAG: testing # Change to latest for production.
 
-tags: ['rcran']
+tags: ['rcran', 'notification']
