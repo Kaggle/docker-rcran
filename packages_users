@@ -2,6 +2,7 @@
 AER                        
 AUC                        
 Amelia                     
+AnomalyDetection           
 AppliedPredictiveModeling  
 BAS                        
 BBmisc                     
@@ -17,12 +18,13 @@ BradleyTerry2
 C50                        
 CARS                       
 CCA                        
+CORElearn                  
 Cairo                      
 CatEncoders                
 CausalImpact               
-ChainLadder                
 ClustOfVar                 
 CompQuadForm               
+ComplexHeatmap             
 DAAG                       
 DBI                        
 DESeq                      
@@ -56,7 +58,6 @@ GPArotation
 GSODR                      
 GenSA                      
 GeoTcgaData                
-GoodmanKruskal             
 GuessCompx                 
 HARModel                   
 HDInterval                 
@@ -97,13 +98,10 @@ OpenMPController
 PCAmixdata                 
 PRROC                      
 ParBayesianOptimization    
-ParamHelpers               
 PerformanceAnalytics       
 PortfolioAnalytics         
-PortfolioAnlytics          
 QuantPsyc                  
 R6                         
-RANN                       
 RBioFormats                
 RColorBrewer               
 RCurl                      
@@ -171,6 +169,7 @@ aTSA
 abind                      
 ada                        
 adabag                     
+adaboosting                
 ade4                       
 afex                       
 agricolae                  
@@ -191,6 +190,7 @@ assertive
 assertr                    
 assertthat                 
 astsa                      
+autoxgboost                
 av                         
 babynames                  
 bannerCommenter            
@@ -199,16 +199,14 @@ base
 base64enc                  
 bayesplot                  
 bbmle                      
+bbplot                     
 beepr                      
 bestNormalize              
 bibliometrix               
 biglm                      
-bigrquery                  
-bigtime                    
 binr                       
 bit64                      
 bladderbatch               
-bnlearn                    
 boot                       
 bootnet                    
 bridgesampling             
@@ -218,7 +216,6 @@ brotools
 bsts                       
 ca                         
 caTools                    
-calibrate                  
 car                        
 carData                    
 caret                      
@@ -262,6 +259,7 @@ crossval
 csv                        
 curatedMetagenomicData     
 curatedOvarianData         
+curl                       
 cvAUC                      
 cvTools                    
 d3heatmap                  
@@ -314,6 +312,7 @@ epitrix
 ergm                       
 esquisse                   
 estimatr                   
+excelR                     
 expsmooth                  
 expsmoth                   
 expss                      
@@ -325,9 +324,7 @@ fGarch
 fUnitRoots                 
 fable                      
 factoextra                 
-fanplot                    
 faraway                    
-fastAdaboost               
 fastDummies                
 fastmatch                  
 fasttime                   
@@ -353,8 +350,10 @@ forcats
 foreach                    
 forecTheta                 
 forecast                   
+forecastHybrid             
 forecastxgb                
 foreign                    
+formatR                    
 formattable                
 fpc                        
 fpp                        
@@ -373,6 +372,7 @@ gargle
 gbm                        
 gdata                      
 genefilter                 
+generalhoslem              
 geoR                       
 geobr                      
 geofacet                   
@@ -386,6 +386,7 @@ ggalt
 gganimate                  
 ggbeeswarm                 
 ggbiplot                   
+ggcorrlot                  
 ggcorrplot                 
 ggdark                     
 ggdendro                   
@@ -468,13 +469,10 @@ htmlwidgets
 hts                        
 httr                       
 hunspell                   
-huxtable                   
-hydroGOF                   
 i                          
 igraph                     
 imager                     
 imbalance                  
-import                     
 imputeMissings             
 imputeTS                   
 incidence                  
@@ -500,6 +498,7 @@ jtools
 kableExtra                 
 keras                      
 kerasR                     
+kerastuneR                 
 kerndwd                    
 kernlab                    
 kknn                       
@@ -545,12 +544,10 @@ magick
 magrittr                   
 mallet                     
 manifestoR                 
-manipulateWidget           
 mapdata                    
 mapproj                    
 maps                       
 maptools                   
-mapview                    
 margins                    
 markdown                   
 matrixStats                
@@ -572,11 +569,11 @@ mime
 miscTools                  
 missForest                 
 missMDA                    
+missRanger                 
 missSBM                    
 missSbm                    
 mitools                    
 mlbench                    
-mlogit                     
 mlr                        
 mlr3                       
 mlrMBO                     
@@ -584,7 +581,6 @@ mltest
 mltools                    
 modeest                    
 modeldata                  
-modelgrid                  
 modelplotr                 
 modelr                     
 modeltools                 
@@ -614,12 +610,12 @@ neuropsychology
 ngram                      
 nlme                       
 nloptr                     
-nlstools                   
 nnet                       
 nnfor                      
 nortest                    
 numDeriv                   
 numbers                    
+nycflights13               
 odbc                       
 olsrr                      
 ompr                       
@@ -630,7 +626,6 @@ openssl
 openxlsx                   
 opera                      
 optimx                     
-orcutt                     
 osmdata                    
 outliers                   
 pROC                       
@@ -652,14 +647,12 @@ pcaGoPromoter
 pdp                        
 penalized                  
 penalizedSVM               
-permute                    
 pheatmap                   
 phonTools                  
 pins                       
 plm                        
 plot3D                     
 plotROC                    
-plot_ly                    
 plotly                     
 plotmo                     
 plotrix                    
@@ -677,7 +670,6 @@ precrec
 priceR                     
 printr                     
 probably                   
-processx                   
 profvis                    
 progress                   
 projections                
@@ -699,7 +691,6 @@ qdap
 qdapDictionaries           
 qdapRegex                  
 qgraph                     
-qpcR                       
 qqman                      
 qtlcharts                  
 quadprog                   
@@ -717,7 +708,6 @@ radarchart
 radiant                    
 ramify                     
 randomForest               
-randomforest               
 randtests                  
 ranger                     
 rapportools                
@@ -750,6 +740,7 @@ rethinking
 reticulate                 
 rfUtilities                
 rgdal                      
+rgenoud                    
 rgeos                      
 rgl                        
 rhdf5                      
@@ -781,7 +772,6 @@ rugarch
 runner                     
 rvest                      
 rworldmap                  
-rworldxtra                 
 saccades                   
 sampling                   
 sand                       
@@ -800,6 +790,7 @@ selectr
 semPlot                    
 sentimentr                 
 seqinr                     
+servr                      
 sf                         
 shiny                      
 shinyWidgets               
@@ -815,6 +806,8 @@ sjPlot
 sjlabelled                 
 sjmisc                     
 skimr                      
+skmeans                    
+slam                       
 slider                     
 smbinning                  
 smooth                     
@@ -902,6 +895,7 @@ tigris
 timeDate                   
 timeSeries                 
 timetk                     
+tinytex                    
 tissuesGeneExpression      
 titanic                    
 tm                         
@@ -929,7 +923,6 @@ tsutils
 tufte                      
 tune                       
 tuneR                      
-tvR                        
 tvd                        
 tweedie                    
 udpipe                     
@@ -939,10 +932,12 @@ unpivotr
 urca                       
 urltools                   
 usdm                       
+usedist                    
 useful                     
 usethis                    
 usmap                      
 utils                      
+uwot                       
 validate                   
 varhandle                  
 vars                       
@@ -982,7 +977,7 @@ xray
 xtable                     
 xts                        
 yardstick                  
-zeallot                    
+yarrr                      
 zip                        
 zipcode                    
 zoo                        
