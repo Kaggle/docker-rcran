@@ -23,6 +23,7 @@ Cairo
 CatEncoders                
 CausalImpact               
 ClustOfVar                 
+ClusterR                   
 CompQuadForm               
 ComplexHeatmap             
 DAAG                       
@@ -43,11 +44,11 @@ EBImage
 EdSurvey                   
 ElemStatLearn              
 EnvStats                   
-ExPanDaR                   
 FNN                        
 FSelector                  
 FSelectorRcpp              
 FactoMineR                 
+FeatureHashing             
 FitAR                      
 FunCluster                 
 GA                         
@@ -64,8 +65,9 @@ HDInterval
 Hmisc                      
 IRdisplay                  
 ISLR                       
-ImageMagick                
 InformationValue           
+IsingFit                   
+IsingSampler               
 KernSmooth                 
 L1pack                     
 LC                         
@@ -80,6 +82,7 @@ MCMCpack
 MLeval                     
 MLmetrics                  
 MVA                        
+MVN                        
 Matching                   
 Matrix                     
 Metrics                    
@@ -95,17 +98,20 @@ NeuralNetTools
 OneR                       
 OpenImageR                 
 OpenMPController           
+PASWR2                     
 PCAmixdata                 
 PRROC                      
 ParBayesianOptimization    
 PerformanceAnalytics       
 PortfolioAnalytics         
+Quandl                     
 QuantPsyc                  
 R6                         
 RBioFormats                
 RColorBrewer               
 RCurl                      
 RJSONIO                    
+RMTL                       
 RMySQL                     
 ROCK                       
 ROCR                       
@@ -116,9 +122,7 @@ RPostgres
 RQuantLib                  
 RSNNS                      
 RSQLite                    
-RSeleniumHelpers           
 RSentiment                 
-RSocrata                   
 RSpectra                   
 RStata                     
 RTextTools                 
@@ -145,7 +149,6 @@ SentimentAnalysis
 SnowballC                  
 SpecsVerification          
 StatMeasures               
-StatPerMeCo                
 TSA                        
 TSPred                     
 TSclust                    
@@ -158,6 +161,7 @@ UBL
 UKgrid                     
 UpSetR                     
 UsingR                     
+VGAM                       
 VIF                        
 VIM                        
 VennDiagram                
@@ -176,7 +180,6 @@ agricolae
 akmeans                    
 alluvial                   
 alr4                       
-amap                       
 animation                  
 anytime                    
 aod                        
@@ -198,10 +201,10 @@ bartMachine
 base                       
 base64enc                  
 bayesplot                  
-bbmle                      
 bbplot                     
 beepr                      
 bestNormalize              
+betareg                    
 bibliometrix               
 biglm                      
 binr                       
@@ -210,7 +213,6 @@ bladderbatch
 boot                       
 bootnet                    
 bridgesampling             
-brms                       
 broom                      
 brotools                   
 bsts                       
@@ -279,7 +281,7 @@ dials
 dichromat                  
 diplyr                     
 directlabels               
-distcrete                  
+dismo                      
 dlm                        
 dlookr                     
 doBy                       
@@ -308,7 +310,6 @@ elo
 emdbook                    
 epiDisplay                 
 epitools                   
-epitrix                    
 ergm                       
 esquisse                   
 estimatr                   
@@ -359,7 +360,6 @@ fpc
 fpp                        
 fpp2                       
 fpp3                       
-fracdiff                   
 fredr                      
 fst                        
 funModeling                
@@ -424,9 +424,7 @@ githubinstall
 glm                        
 glm2                       
 glmnet                     
-glmulti                    
 glue                       
-gmapsdistance              
 gmodels                    
 googleVis                  
 googledrive                
@@ -483,7 +481,6 @@ installr
 interactions               
 intergraph                 
 intsvy                     
-invgamma                   
 ipred                      
 irlba                      
 irr                        
@@ -499,7 +496,6 @@ kableExtra
 keras                      
 kerasR                     
 kerastuneR                 
-kerndwd                    
 kernlab                    
 kknn                       
 klaR                       
@@ -520,12 +516,12 @@ leaflet
 leafpop                    
 leaps                      
 learnr                     
+lessR                      
 lexicon                    
 lib_meta                   
 lightgbm                   
 likert                     
 limma                      
-linelist                   
 lme4                       
 lmerTest                   
 lmtest                     
@@ -549,7 +545,6 @@ mapproj
 maps                       
 maptools                   
 margins                    
-markdown                   
 matrixStats                
 matrixcalc                 
 mboost                     
@@ -557,7 +552,6 @@ mccr
 mclust                     
 mco                        
 mctest                     
-mda                        
 mdsr                       
 metRology                  
 methods                    
@@ -587,6 +581,7 @@ modeltools
 moderndive                 
 moments                    
 mondate                    
+mongolite                  
 monitoR                    
 mosaic                     
 mpath                      
@@ -595,11 +590,13 @@ mva
 mvnormtest                 
 mvtnorm                    
 mxnet                      
+nCov2019                   
 nFactors                   
 naivebayes                 
 name_of_package            
 nameofpackage              
 naniar                     
+ncvreg                     
 ndjson                     
 needs                      
 network                    
@@ -613,7 +610,6 @@ nloptr
 nnet                       
 nnfor                      
 nortest                    
-numDeriv                   
 numbers                    
 nycflights13               
 odbc                       
@@ -643,13 +639,14 @@ partykit
 pastecs                    
 patchwork                  
 pbapply                    
-pcaGoPromoter              
 pdp                        
 penalized                  
 penalizedSVM               
 pheatmap                   
+philentropy                
 phonTools                  
 pins                       
+pivottabler                
 plm                        
 plot3D                     
 plotROC                    
@@ -661,7 +658,6 @@ plsVarSel
 plumber                    
 plyr                       
 png                        
-poLCA                      
 polycor                    
 portes                     
 ppcor                      
@@ -672,7 +668,6 @@ printr
 probably                   
 profvis                    
 progress                   
-projections                
 prophet                    
 proto                      
 proustr                    
@@ -681,8 +676,8 @@ pryr
 pscl                       
 pso                        
 psych                      
-psychometric               
 ptw                        
+pubr                       
 purrr                      
 pwr                        
 pwt9                       
@@ -690,6 +685,7 @@ qcc
 qdap                       
 qdapDictionaries           
 qdapRegex                  
+qdapTools                  
 qgraph                     
 qqman                      
 qtlcharts                  
@@ -706,7 +702,6 @@ rENA
 rJava                      
 radarchart                 
 radiant                    
-ramify                     
 randomForest               
 randtests                  
 ranger                     
@@ -763,6 +758,7 @@ rockchalk
 ropls                      
 rpart                      
 rpivotTable                
+rriskDistributions         
 rsample                    
 rstan                      
 rstanarm                   
@@ -879,7 +875,6 @@ thief
 tibble                     
 tibbletime                 
 tictoc                     
-tidybayes                  
 tidycensus                 
 tidygraph                  
 tidyjson                   
@@ -896,7 +891,6 @@ timeDate
 timeSeries                 
 timetk                     
 tinytex                    
-tissuesGeneExpression      
 titanic                    
 tm                         
 tmap                       
@@ -915,9 +909,9 @@ tseries
 tsfeatures                 
 tsfknn                     
 tsibble                    
-tsintermittent             
 tsmp                       
 tsne                       
+tsoutliers                 
 tstools                    
 tsutils                    
 tufte                      
@@ -933,7 +927,6 @@ urca
 urltools                   
 usdm                       
 usedist                    
-useful                     
 usethis                    
 usmap                      
 utils                      
@@ -964,7 +957,6 @@ webshot
 wesanderson                
 widgetframe                
 widyr                      
-wooldridge                 
 wordcloud                  
 wordcloud2                 
 workflows                  
