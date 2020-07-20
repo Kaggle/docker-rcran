@@ -7,10 +7,8 @@ AnomalyDetection
 AppliedPredictiveModeling  
 BART                       
 BBmisc                     
-BSDA                       
 BTM                        
 BallMapper                 
-BatchGetSymbols            
 BaylorEdPsych              
 BiocParallel               
 Blossom                    
@@ -27,10 +25,9 @@ CausalImpact
 ChannelAttribution         
 ClustOfVar                 
 ClusterR                   
-CompQuadForm               
 ComplexHeatmap             
+Compositional              
 DBI                        
-DESeq                      
 DESeq2                     
 DEoptim                    
 DMwR                       
@@ -47,7 +44,6 @@ EnvStats
 FSA                        
 FSAdata                    
 FSelector                  
-FSelectorRcpp              
 FactoMineR                 
 FeatureHashing             
 FinTS                      
@@ -60,7 +56,6 @@ GPArotation
 GSODR                      
 GenSA                      
 GeneCycle                  
-GuessCompx                 
 HARModel                   
 HDInterval                 
 HistData                   
@@ -75,6 +70,8 @@ KernSmooth
 L1pack                     
 LC                         
 LDAvis                     
+LabelEncoder               
+Lahman                     
 LaplacesDemon              
 LearnBayes                 
 LiblineaR                  
@@ -98,7 +95,6 @@ OneR
 OpenImageR                 
 OpenMPController           
 PASWR2                     
-PCAmixdata                 
 PRROC                      
 ParBayesianOptimization    
 PerformanceAnalytics       
@@ -119,7 +115,6 @@ RODBC
 ROI                        
 ROSE                       
 RPostgres                  
-RQuantLib                  
 RSNNS                      
 RSQLite                    
 RSentiment                 
@@ -131,11 +126,11 @@ Rblpapi
 Rborist                    
 Rcmdr                      
 Rcpp                       
-RcppCNPy                   
 RcppRoll                   
 RedditExtractoR            
 ResourceSelection          
 Rglpk                      
+RgoogleMaps                
 Rgraphviz                  
 Rmisc                      
 Rmixmod                    
@@ -151,17 +146,18 @@ SentimentAnalysis
 Seurat                     
 SnowballC                  
 SpecsVerification          
+StatPerMeCo                
+TCGAbiolinks               
 TSA                        
 TSPred                     
 TSclust                    
 TSstudio                   
 TTR                        
-TeachingDemos              
 UBL                        
 UKgrid                     
-UpSetR                     
 UsingR                     
 VGAM                       
+VIF                        
 VIM                        
 VennDiagram                
 WVPlots                    
@@ -181,6 +177,7 @@ alluvial
 alr3                       
 alr4                       
 animation                  
+anomalize                  
 anytime                    
 aod                        
 ape                        
@@ -209,8 +206,8 @@ bestNormalize
 bestglm                    
 betareg                    
 bigdist                    
-biglm                      
 binr                       
+bioacoustics               
 biosignalEMG               
 bit64                      
 boot                       
@@ -232,6 +229,8 @@ circlize
 clValid                    
 class                      
 cld2                       
+cleaner                    
+cli                        
 climbeR                    
 clpfd                      
 clue                       
@@ -241,7 +240,6 @@ clusterSim
 clustertend                
 clusteval                  
 coefplot                   
-colormap                   
 combinat                   
 convPkg5                   
 coop                       
@@ -256,13 +254,12 @@ countrycode
 cowplot                    
 crayon                     
 crosstalk                  
-csv                        
 curatedMetagenomicData     
 curatedOvarianData         
 curl                       
 cvAUC                      
 cvTools                    
-d3r                        
+d3Tree                     
 dLagM                      
 dada2                      
 data                       
@@ -270,13 +267,11 @@ datasets
 dbscan                     
 deSolve                    
 dendextend                 
-densenet                   
 descr                      
 devtools                   
 diagram                    
 dials                      
 dichromat                  
-diplyr                     
 directlabels               
 dismo                      
 dispmod                    
@@ -286,7 +281,6 @@ doBy
 doMC                       
 doParallel                 
 doSNOW                     
-downloader                 
 dplyr                      
 drc                        
 dslabs                     
@@ -301,9 +295,7 @@ echarts4r
 eeptools                   
 effects                    
 elasticnet                 
-ellipse                    
 elo                        
-epiDisplay                 
 epitools                   
 ergm                       
 esquisse                   
@@ -321,6 +313,7 @@ fGarch
 fUnitRoots                 
 fable                      
 factoextra                 
+fanplot                    
 faraway                    
 fastAdaboost               
 fastDummies                
@@ -336,6 +329,7 @@ fforma
 fftw                       
 fields                     
 filesstrings               
+fingerprint                
 fitdistrplus               
 fitzRoy                    
 fivethirtyeight            
@@ -368,6 +362,7 @@ gbm
 gclus                      
 gdata                      
 gdistance                  
+gee                        
 genefilter                 
 generalhoslem              
 geoR                       
@@ -381,7 +376,6 @@ gettingtothebottom
 ggExtra                    
 ggTimeSeries               
 ggalluvial                 
-ggalt                      
 gganimate                  
 ggbeeswarm                 
 ggbiplot                   
@@ -390,13 +384,13 @@ ggcorrplot
 ggdark                     
 ggdendro                   
 ggeconodist                
-ggeffects                  
 ggforce                    
 ggfortify                  
 gghalves                   
 gghighlight                
 ggiraph                    
 ggiraphExtra               
+ggjoy                      
 ggmap                      
 ggmosaic                   
 ggpacman                   
@@ -415,6 +409,7 @@ ggspatial
 ggstatsplot                
 ggtext                     
 ggthemes                   
+ggthemr                    
 ggvis                      
 ggwordcloud                
 gifski                     
@@ -426,9 +421,7 @@ gmodels
 googleVis                  
 googledrive                
 gplots                     
-gramEvol                   
 graphics                   
-greybox                    
 grid                       
 gridBase                   
 gridExtra                  
@@ -438,6 +431,7 @@ gsheet
 gsubfn                     
 gt                         
 gtable                     
+gtools                     
 gtrendsR                   
 gutenbergr                 
 gvlma                      
@@ -477,6 +471,7 @@ irr
 iterators                  
 itsmr                      
 itunesr                    
+janeaustenr                
 janitor                    
 jpeg                       
 jsonlite                   
@@ -494,6 +489,8 @@ ks
 labeling                   
 labelled                   
 landscapemetrics           
+lares                      
+lars                       
 latex2exp                  
 lattice                    
 latticeExtra               
@@ -516,7 +513,6 @@ lmtest
 lobstr                     
 lomb                       
 loo                        
-lpdensity                  
 lsa                        
 lubridate                  
 lunar                      
@@ -552,6 +548,8 @@ missSbm
 mlbench                    
 mlr                        
 mlr3                       
+mlr3learners               
+mlr3pipelines              
 mlrMBO                     
 mltest                     
 mltools                    
@@ -562,7 +560,6 @@ modelplotr
 modelr                     
 moderndive                 
 moments                    
-mondate                    
 mongolite                  
 monitoR                    
 mosaic                     
@@ -575,7 +572,6 @@ nCov2019
 nFactors                   
 naivebayes                 
 name_of_package            
-nameofpackage              
 naniar                     
 nbconvertR                 
 ncvreg                     
@@ -583,7 +579,6 @@ ndjson
 needs                      
 network                    
 networkD3                  
-networkDynamic             
 neuralnet                  
 ngram                      
 nlme                       
@@ -603,12 +598,13 @@ openssl
 openxlsx                   
 opera                      
 optimx                     
+osmar                      
 osmdata                    
 outliers                   
 pROC                       
 packHV                     
 package_name               
-packcircles                
+packrat                    
 pacman                     
 padr                       
 pals                       
@@ -623,7 +619,6 @@ pastecs
 patchwork                  
 pbapply                    
 pdp                        
-penalized                  
 penalizedSVM               
 pheatmap                   
 philentropy                
@@ -646,7 +641,6 @@ pracma
 precrec                    
 priceR                     
 printr                     
-probably                   
 progress                   
 prophet                    
 proto                      
@@ -668,9 +662,8 @@ qdapDictionaries
 qdapRegex                  
 qdapTools                  
 qgraph                     
-qqman                      
-qtlcharts                  
 quadprog                   
+qualV                      
 qualtRics                  
 quanteda                   
 quantmod                   
@@ -678,11 +671,11 @@ quantreg
 questionr                  
 r                          
 rBayesianOptimization      
-rENA                       
 rJava                      
 radarchart                 
-radiant                    
+ramify                     
 randomForest               
+randomForestSRC            
 randtests                  
 ranger                     
 rapportools                
@@ -691,23 +684,18 @@ rattle
 rbokeh                     
 rcdk                       
 rcompanion                 
-rddensity                  
-rdlocrand                  
 rdmformats                 
-rdrobust                   
 rdrop2                     
 reader                     
 readr                      
 readstata13                
 readtext                   
 readxl                     
-readxlsx                   
 rebus                      
 recipes                    
 recommenderlab             
 recosystem                 
 remotes                    
-reporttools                
 repr                       
 reshape                    
 reshape2                   
@@ -736,6 +724,7 @@ robustbase
 robustfa                   
 rockchalk                  
 ropls                      
+rowr                       
 rpart                      
 rpivotTable                
 rriskDistributions         
@@ -744,7 +733,6 @@ rstan
 rstanarm                   
 rstatix                    
 rugarch                    
-runner                     
 rvest                      
 rword2vec                  
 rworldmap                  
@@ -766,6 +754,7 @@ selectr
 semPlot                    
 sentimentr                 
 seqinr                     
+seriation                  
 servr                      
 sf                         
 shiny                      
@@ -773,10 +762,8 @@ shinyWidgets
 shinydashboard             
 shinyjs                    
 shinythemes                
-showtext                   
 signal                     
 sigr                       
-simputation                
 sjPlot                     
 sjlabelled                 
 sjmisc                     
@@ -791,6 +778,7 @@ sna
 snow                       
 solitude                   
 soundecology               
+soundgen                   
 sp                         
 sparkline                  
 sparklyr                   
@@ -802,13 +790,13 @@ spelling
 spgs                       
 splines                    
 splitTools                 
-splitmix                   
 splitstackshape            
 splus2R                    
 sqldf                      
 stargazer                  
+state                      
+statebins                  
 statmod                    
-statnet                    
 stats                      
 stats4                     
 statsr                     
@@ -819,7 +807,6 @@ stringdist
 stringi                    
 stringr                    
 summarytools               
-sunburstR                  
 superheat                  
 superml                    
 survey                     
@@ -841,7 +828,6 @@ textrank
 textrecipes                
 textreg                    
 textreuse                  
-textshape                  
 textstem                   
 tfdatasets                 
 tfhub                      
@@ -852,6 +838,7 @@ tibble
 tibbletime                 
 tictoc                     
 tidycensus                 
+tidygeocoder               
 tidygraph                  
 tidyjson                   
 tidymodels                 
@@ -880,6 +867,7 @@ triangle
 truncnorm                  
 tsbox                      
 tscount                    
+tsdl                       
 tseries                    
 tsfeatures                 
 tsfknn                     
@@ -887,7 +875,6 @@ tsibble
 tsmp                       
 tsoutliers                 
 tstools                    
-tsutils                    
 tufte                      
 tune                       
 tuneR                      
@@ -899,7 +886,6 @@ twitteR
 udpipe                     
 unbalanced                 
 unikn                      
-unpivotr                   
 urca                       
 urltools                   
 uroot                      
@@ -923,12 +909,10 @@ viridis
 viridisLite                
 visNetwork                 
 visdat                     
-visreg                     
 vita                       
 vroom                      
 vtreat                     
 waffle                     
-wakefield                  
 warbleR                    
 wavelets                   
 wavenet                    
@@ -942,11 +926,10 @@ wordcloud
 wordcloud2                 
 workflows                  
 writexl                    
-xgb                        
 xgboost                    
 xlsx                       
 xml2                       
-xray                       
+xplorerr                   
 xtable                     
 xts                        
 yardstick                  
