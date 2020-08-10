@@ -5,7 +5,6 @@ Amelia
 AnomalyDetection           
 AppliedPredictiveModeling  
 BART                       
-BTM                        
 BallMapper                 
 BatchGetSymbols            
 BiocParallel               
@@ -41,7 +40,6 @@ EnvStats
 FNN                        
 FSA                        
 FSAdata                    
-FSelector                  
 FactoMineR                 
 FeatureHashing             
 FinTS                      
@@ -68,12 +66,10 @@ LDAvis
 LabelEncoder               
 Lahman                     
 LaplacesDemon              
-LearnBayes                 
 LiblineaR                  
 MASS                       
 MCMCpack                   
 MLmetrics                  
-MVA                        
 MVN                        
 Matrix                     
 Metrics                    
@@ -130,11 +126,8 @@ SpecsVerification
 StatPerMeCo                
 TCGAbiolinks               
 TSA                        
-TSstudio                   
 TTR                        
-UBL                        
 UpSetR                     
-UsingR                     
 VGAM                       
 VIF                        
 VIM                        
@@ -144,7 +137,6 @@ X
 XML                        
 aTSA                       
 abind                      
-ada                        
 adabag                     
 adaboosting                
 ade4                       
@@ -153,7 +145,6 @@ agricolae
 akmeans                    
 alluvial                   
 alr3                       
-alr4                       
 animation                  
 anomalize                  
 anytime                    
@@ -178,7 +169,6 @@ bayesplot
 bayestestR                 
 bbplot                     
 beepr                      
-bestNormalize              
 bestglm                    
 betareg                    
 bigdist                    
@@ -206,15 +196,11 @@ cld2
 cleaner                    
 cli                        
 climbeR                    
-clpfd                      
-clustMixType               
 cluster                    
-clustertend                
 coefplot                   
 colorblindr                
 colorspace                 
 compareGroups              
-convPkg5                   
 coop                       
 corpcor                    
 corpus                     
@@ -230,7 +216,6 @@ curatedMetagenomicData
 curl                       
 cvTools                    
 d3Tree                     
-dLagM                      
 data                       
 datasets                   
 dbscan                     
@@ -250,7 +235,6 @@ doMC
 doParallel                 
 doSNOW                     
 dplyr                      
-drc                        
 dslabs                     
 dtplyr                     
 dtw                        
@@ -261,13 +245,10 @@ dynlm
 e1071                      
 earth                      
 echarts4r                  
-eeptools                   
 effects                    
 egg                        
 elasticnet                 
-elo                        
 epitools                   
-esquisse                   
 estimatr                   
 exact2x2                   
 excelR                     
@@ -275,7 +256,6 @@ expss
 extraTrees                 
 extrafont                  
 ez                         
-fGarch                     
 fUnitRoots                 
 fable                      
 factoextra                 
@@ -284,7 +264,6 @@ fanplot
 faraway                    
 fastAdaboost               
 fastDummies                
-fastmatch                  
 fasttime                   
 fda                        
 fdakma                     
@@ -295,7 +274,6 @@ fields
 filesstrings               
 fingerprint                
 fitdistrplus               
-fitzRoy                    
 fivethirtyeight            
 flashClust                 
 flexdashboard              
@@ -314,7 +292,6 @@ fs
 fst                        
 funModeling                
 furrr                      
-future                     
 fuzzyjoin                  
 gam                        
 gapminder                  
@@ -332,11 +309,9 @@ geojsonR
 geojsonio                  
 geojsonsf                  
 geosphere                  
-gettingtothebottom         
 ggExtra                    
 ggalluvial                 
 gganimate                  
-ggbeeswarm                 
 ggbiplot                   
 ggcorrlot                  
 ggcorrplot                 
@@ -352,7 +327,6 @@ ggjoy
 ggmap                      
 ggpacman                   
 ggplot2                    
-ggplotify                  
 ggplotly                   
 ggpubr                     
 ggraph                     
@@ -413,7 +387,6 @@ imbalance
 imputeMissings             
 imputeTS                   
 incidence                  
-ineq                       
 insight                    
 inspectdf                  
 invgamma                   
@@ -450,7 +423,6 @@ leafpop
 leaps                      
 learnr                     
 lessR                      
-lib_meta                   
 lightgbm                   
 limma                      
 lme4                       
@@ -462,10 +434,8 @@ lsa
 lubridate                  
 lunar                      
 mFilter                    
-magicfor                   
 magick                     
 magrittr                   
-manifestoR                 
 mapdata                    
 mapproj                    
 maps                       
@@ -477,7 +447,6 @@ matrixcalc
 mboost                     
 mclust                     
 mco                        
-mctest                     
 memisc                     
 metRology                  
 methods                    
@@ -520,7 +489,6 @@ needs
 network                    
 networkD3                  
 neuralnet                  
-ngram                      
 nlme                       
 nnet                       
 nnfor                      
@@ -562,23 +530,17 @@ phonTools
 pivottabler                
 plm                        
 plot3D                     
-plotROC                    
 plotly                     
 plotrix                    
 pls                        
 plyr                       
 png                        
 polycor                    
-portes                     
 ppcor                      
 pracma                     
-precrec                    
 priceR                     
-printr                     
-progress                   
 prophet                    
 proto                      
-proustr                    
 proxy                      
 pryr                       
 pscl                       
@@ -600,10 +562,8 @@ qualtRics
 quanteda                   
 quantmod                   
 quantreg                   
-questionr                  
 r                          
 rBayesianOptimization      
-rJava                      
 radarchart                 
 ramify                     
 randomForest               
@@ -668,7 +628,6 @@ rugarch
 rvest                      
 rword2vec                  
 rworldmap                  
-sampling                   
 sand                       
 sandwich                   
 sarima                     
@@ -698,7 +657,6 @@ skimr
 skmeans                    
 slam                       
 slider                     
-smbinning                  
 smooth                     
 sna                        
 snow                       
@@ -710,7 +668,6 @@ sparklyr
 sparseIndexTracking        
 spatstat                   
 spdep                      
-spgs                       
 splines                    
 splitstackshape            
 splus2R                    
@@ -752,7 +709,6 @@ textreuse
 textstem                   
 tfdatasets                 
 tfhub                      
-tfruns                     
 tibble                     
 tibbletime                 
 tictoc                     
@@ -792,7 +748,6 @@ tsfeatures
 tsfknn                     
 tsibble                    
 tsoutliers                 
-tstools                    
 tufte                      
 tune                       
 tuneR                      
@@ -816,7 +771,6 @@ varhandle
 vars                       
 vcd                        
 vegan                      
-vif                        
 vip                        
 viridis                    
 viridisLite                
