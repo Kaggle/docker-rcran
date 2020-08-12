@@ -15,7 +15,10 @@ fable
 foreign
 fslr
 gapminder
+gganimate
 ggplot2
+ggraph
+ggthemes
 gridSVG
 gtable
 hrbrthemes
