@@ -65,6 +65,7 @@ stringr
 survival
 testthat
 tidyr
+torch
 udunits2
 xgboost
 zoo
