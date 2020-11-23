@@ -64,6 +64,7 @@ sf
 stringr
 survival
 testthat
+tidymodels
 tidyr
 torch
 udunits2
