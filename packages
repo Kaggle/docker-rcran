@@ -66,6 +66,7 @@ survival
 testthat
 tidymodels
 tidyr
+timereg
 torch
 udunits2
 xgboost
