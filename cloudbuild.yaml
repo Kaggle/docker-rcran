@@ -16,21 +16,14 @@ steps:
   - push
   - gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID
 
-- id: 'push-pretest'
-  waitFor: ['intermediate-push']
-  name: 'gcr.io/cloud-builders/docker'
-  args:
-  - push
-  - gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID
-
 # Verify 'convert' (ImageMagick) is available.
 - id: 'test-convert'
-  waitFor: ['push-pretest'] # Otherwise the test failure should stop push.
+  waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
   name: 'gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID'
   args: ['convert', '--version']
 
 - id: 'test'
-  waitFor: ['push-pretest'] # Otherwise the test failure should stop push.
+  waitFor: ['intermediate-push'] # Otherwise the test failure should stop push.
   name: 'gcr.io/$PROJECT_ID/rcran-build:$BUILD_ID'
   entrypoint: 'bash'
   args:
