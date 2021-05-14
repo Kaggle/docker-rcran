@@ -15,8 +15,8 @@ options(Ncpus = parallel::detectCores())
 library(parallel)
 unlink("install_log_parallel")
 
-# Install util packages.
-utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat', 'hrbrthemes')
+# Install util packages and packages with later conflicts.
+utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat', 'hrbrthemes', 'igraph')
 for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE)
 }
