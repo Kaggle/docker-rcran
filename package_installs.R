@@ -47,7 +47,7 @@ do_one <- function(pkg){
 
 alreadyInstalled <- function(pkg){
   if(pkg %in% rownames(existingPackages)){
-    if(existingPackages[pkg,"Version"] == as.character(allPackages$Version[pkg])) {
+    if(!is.na(allPackages$Version[pkg]) && existingPackages[pkg,"Version"] == as.character(allPackages$Version[pkg])) {
       return(TRUE)
     }
   }
