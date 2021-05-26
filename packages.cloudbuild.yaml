@@ -74,7 +74,7 @@ steps:
   - '-c'
   - |
     git commit -am "Update the list of R packages used on Kaggle ($(wc -l packages_users | awk '{ print $1 }') packages)"
-    git push -u origin master
+    git push -u origin main
   volumes:
   - name: 'ssh'
     path: /root/.ssh
