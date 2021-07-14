@@ -192,7 +192,8 @@ NMF
 NbClust                               
 NetworkComparisonTest                 
 NeuralNetTools                        
-NoiseFiltersR                         
+NoiseFiltersR
+NNS
 ORCI                                  
 OneR                                  
 OpenImageR                            
