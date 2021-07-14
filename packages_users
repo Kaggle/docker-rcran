@@ -7,7 +7,6 @@ AMR
 ANN2                                  
 ANTsR                                 
 AUC                                   
-AdequacyModel                         
 AggregateR                            
 AhoCorasickTrie                       
 Amelia                                
@@ -15,11 +14,11 @@ AmesHousing
 AnnotationDbi                         
 AppliedPredictiveModeling             
 AsyK                                  
-BB                                    
 BBmisc                                
 BDgraph                               
 BEST                                  
 BETS                                  
+BLPestimatoR                          
 BSDA                                  
 Barycenter                            
 BatchGetSymbols                       
@@ -90,6 +89,7 @@ ExPanDaR
 ExPosition                            
 ExtDist                               
 FFTrees                               
+FField                                
 FNN                                   
 FSelector                             
 FSinR                                 
@@ -116,7 +116,6 @@ GPArotation
 GPfit                                 
 GSE5859Subset                         
 GeneCycle                             
-Glimma                                
 Gmisc                                 
 GoFKernel                             
 GoodmanKruskal                        
@@ -128,7 +127,6 @@ HelpersMG
 Hmisc                                 
 IAcsSPCR                              
 ICSNP                                 
-IHW                                   
 IM                                    
 INLA                                  
 IRdisplay                             
@@ -146,18 +144,18 @@ Johnson
 KMsurv                                
 KRLS                                  
 Kendall                               
+KernSmooth                            
 KernelKnn                             
 Kmisc                                 
 KoNLP                                 
 L1pack                                
 LCAvarsel                             
-LD                                    
-LDA                                   
 LDAvis                                
 LTRCtrees                             
 LabelEncoder                          
 Lahman                                
 LaplacesDemon                         
+Laurae                                
 LearnBayes                            
 LiblineaR                             
 LogicReg                              
@@ -189,13 +187,13 @@ ModelMetrics
 MuMIn                                 
 NLP                                   
 NMF                                   
+NNS                                   
 NbClust                               
 NetworkComparisonTest                 
 NeuralNetTools                        
 NoiseFiltersR                         
 ORCI                                  
 OneR                                  
-OpenImageR                            
 OpenML                                
 OpenMPController                      
 OpenMx                                
@@ -206,9 +204,10 @@ PCAmixdata
 PNADcIBGE                             
 PRROC                                 
 PReMiuM                               
+PakPC2017                             
 ParBayesianOptimization               
 PerformanceAnalytics                  
-PoiClaClu                             
+Pie                                   
 PortfolioAnalytics                    
 PostcodesioR                          
 Publish                               
@@ -244,8 +243,8 @@ RSelenium
 RSentiment                            
 RSkittleBrewer                        
 RStoolbox                             
+RTF                                   
 RTextTools                            
-RUVSeq                                
 RWeka                                 
 RaceID                                
 RandPro                               
@@ -255,12 +254,13 @@ RcmdrMisc
 Rcpp                                  
 RcppCNPy                              
 RcppDE                                
+RcppGSL                               
 RcppRoll                              
+RcppZiggurat                          
 Rcsdp                                 
 Rd2md                                 
 Rdonlp2                               
 RecordLinkage                         
-ReportingTools                        
 ResourceSelection                     
 Rfast                                 
 Rglpk                                 
@@ -286,7 +286,6 @@ SGL
 SHAPforxgboost                        
 SIS                                   
 SPREDA                                
-SQUAREM                               
 SSN                                   
 SSNbayes                              
 SSNdata                               
@@ -305,6 +304,7 @@ SixSigma
 SnowballC                             
 SparseM                               
 SpatioTemporal                        
+Spectrum                              
 StanHeaders                           
 StatsBombR                            
 SummarizedExperiment                  
@@ -355,7 +355,6 @@ adegraphics
 afex                                  
 agricolae                             
 aif360                                
-airway                                
 akima                                 
 alluvial                              
 alr3                                  
@@ -368,7 +367,6 @@ anytime
 aod                                   
 apcluster                             
 ape                                   
-apeglm                                
 aplpack                               
 apyori                                
 argosfilter                           
@@ -392,7 +390,6 @@ av
 awtools                               
 babynames                             
 backports                             
-baguetta                              
 baguette                              
 bannerCommenter                       
 barplot3d                             
@@ -419,6 +416,7 @@ bigmemory
 bigrquery                             
 billboarder                           
 bindrcpp                              
+binom                                 
 biomaRt                               
 biomod2                               
 biosignalEMG                          
@@ -427,7 +425,6 @@ bipartite
 birk                                  
 bit64                                 
 bitops                                
-biwavelet                             
 bizdays                               
 blm                                   
 blockcluster                          
@@ -437,9 +434,11 @@ boostime
 boot                                  
 bootImpute                            
 bootnet                               
+bootstrap                             
 brant                                 
 breakDown                             
 brew                                  
+brglm2                                
 bridgesampling                        
 brms                                  
 brnn                                  
@@ -454,6 +453,7 @@ caTools
 candisc                               
 car                                   
 carData                               
+carat                                 
 caret                                 
 caretEnsemble                         
 carey                                 
@@ -467,6 +467,7 @@ changepoint
 checkmate                             
 chemometrics                          
 chinamap                              
+chocolate                             
 chorddiag                             
 choroplethr                           
 choroplethrMaps                       
@@ -482,6 +483,7 @@ clifro
 climbeR                               
 clipr                                 
 clock                                 
+clpfd                                 
 clue                                  
 clues                                 
 clustMixType                          
@@ -514,7 +516,6 @@ compositions
 conflicted                            
 conjoint                              
 contrast                              
-convertr                              
 coop                                  
 copula                                
 coronavirus                           
@@ -551,6 +552,7 @@ data
 dataMaid                              
 dataQualityR                          
 datae                                 
+dataexplorer                          
 datasauRus                            
 datasets                              
 date                                  
@@ -570,8 +572,8 @@ depmixS4
 descr                                 
 descriptr                             
 desctable                             
+detectseparation                      
 devtools                              
-dfoptim                               
 dgof                                  
 diagram                               
 dials                                 
@@ -583,7 +585,6 @@ directlabels
 discrim                               
 distrEx                               
 distributions3                        
-dlm                                   
 dlookr                                
 dloolr                                
 dm                                    
@@ -598,6 +599,7 @@ doc2vec
 dogbreed                              
 dotwhisker                            
 downloader                            
+dpl                                   
 dplR                                  
 dplyer                                
 dplyr                                 
@@ -616,12 +618,12 @@ dyn
 dynfactoR                             
 dynlm                                 
 dyplr                                 
-dyplyr                                
 e1071                                 
 earth                                 
 easyGgplot2                           
 easypackages                          
 easyr                                 
+easystats                             
 echarts4r                             
 ecodist                               
 edgeR                                 
@@ -693,18 +695,18 @@ fda
 fdth                                  
 feasts                                
 feather                               
-fftwtools                             
 fields                                
 fiftystater                           
 filtered_netflix_prize_User           
 finetune                              
 finreportr                            
-fission                               
 fitdistr                              
 fitdistrplus                          
 fitzRoy                               
 fixerapi                              
 fixest                                
+flavors                               
+flavors_of_cacao                      
 flexclust                             
 flexdashboard                         
 flexsurv                              
@@ -734,7 +736,6 @@ fredr
 frontier                              
 fs                                    
 fslr                                  
-fst                                   
 funFEM                                
 funModeling                           
 funModelling                          
@@ -742,6 +743,7 @@ furrr
 future                                
 futures                               
 fuzzyjoin                             
+g                                     
 gProfileR                             
 gRain                                 
 gRbase                                
@@ -807,7 +809,6 @@ gglasso
 ggmap                                 
 ggmosaic                              
 ggparty                               
-ggpli                                 
 ggplo2                                
 ggplot                                
 ggplot2                               
@@ -846,7 +847,6 @@ glm2
 glmmTMB                               
 glmnet                                
 glmnetUtils                           
-glmpca                                
 glmulti                               
 glpk                                  
 glue                                  
@@ -857,14 +857,12 @@ gmt
 goft                                  
 googleVis                             
 googledrive                           
-googlesheets                          
 goseq                                 
 gpclib                                
 gplots                                
 grDevices                             
 graph                                 
 graphics                              
-gratia                                
 grepl                                 
 greta                                 
 grf                                   
@@ -896,13 +894,13 @@ hawkes
 hdi                                   
 hdm                                   
 hdr                                   
+hdrcde                                
 heatmaply                             
 heplots                               
 here                                  
 hexbin                                
 hflights                              
 highcharter                           
-histogram                             
 hmeasure                              
 hms                                   
 hnp                                   
@@ -927,7 +925,6 @@ imager
 imbalance                             
 iml                                   
 immunedeconv                          
-implyr                                
 import                                
 imputeMissings                        
 imputeTS                              
@@ -946,6 +943,7 @@ invgamma
 ipred                                 
 irlba                                 
 irr                                   
+isa                                   
 isotree                               
 iterators                             
 itsadug                               
@@ -958,7 +956,6 @@ jpeg
 jsonify                               
 jsonlite                              
 jtools                                
-kableEx                               
 kableExtra                            
 kamila                                
 katadasaR                             
@@ -974,6 +971,7 @@ kknn
 klaR                                  
 klar                                  
 knitr                                 
+knn                                   
 knnflex                               
 koRpus                                
 kohonen                               
@@ -984,7 +982,6 @@ kselection
 labdsv                                
 labeling                              
 labelled                              
-labridate                             
 lamW                                  
 lares                                 
 largeVis                              
@@ -998,6 +995,7 @@ lavaan
 lawstat                               
 lazyeval                              
 lcmix                                 
+lcmm                                  
 lda                                   
 ldatuning                             
 leaflet                               
@@ -1018,7 +1016,6 @@ lightgbm
 lime                                  
 limma                                 
 lintr                                 
-lle                                   
 lme4                                  
 lmerTest                              
 lmtest                                
@@ -1070,10 +1067,12 @@ mcbiopi
 mccr                                  
 mcfda                                 
 mclust                                
+mctest                                
 mda                                   
 mdqc                                  
 mdscore                               
 measures                              
+meboot                                
 mechkar                               
 mefa                                  
 memery                                
@@ -1107,11 +1106,13 @@ mlr
 mlr3                                  
 mlr3data                              
 mlr3extralearners                     
+mlr3fselect                           
 mlr3learners                          
 mlr3measures                          
 mlr3misc                              
 mlr3pipelines                         
 mlr3tuning                            
+mlr3v                                 
 mlr3verse                             
 mlr3viz                               
 mlrMBO                                
@@ -1125,7 +1126,6 @@ modelsummary
 modeltime                             
 modeltools                            
 moderndive                            
-moderndrive                           
 moments                               
 mongolite                             
 monmlp                                
@@ -1173,14 +1173,13 @@ nloptr
 nlstools                              
 nnet                                  
 nnfor                                 
-nnls                                  
 nodeHarvest                           
 nombre_del_paquete                    
 nomclust                              
 normtest                              
 nortest                               
 nowcasting                            
-np                                    
+nsprcomp                              
 null                                  
 numDeriv                              
 numbers                               
@@ -1197,6 +1196,7 @@ openair
 openintro                             
 openxlsx                              
 opera                                 
+optimParallel                         
 optimx                                
 orcutt                                
 ordinal                               
@@ -1218,7 +1218,6 @@ paletteer
 palmarpenguins                        
 palmerpenguin                         
 palmerpenguins                        
-pals                                  
 pandas                                
 pander                                
 papaja                                
@@ -1252,10 +1251,12 @@ pedometrics
 penalized                             
 penalizedSVM                          
 pequod                                
+performance                           
 performanceEstimation                 
 permute                               
 petrinetR                             
 pheatmap                              
+philentropy                           
 phonTools                             
 piano                                 
 pillar                                
@@ -1267,6 +1268,7 @@ plm
 plot3D                                
 plotKML                               
 plotROC                               
+plotcomp                              
 plotly                                
 plotmo                                
 plotrix                               
@@ -1337,6 +1339,7 @@ quantreg
 quantstrat                            
 questionr                             
 qwraps2                               
+r2rtf                                 
 rARPACK                               
 rBayesianOptimization                 
 rCBA                                  
@@ -1347,7 +1350,6 @@ rMaps
 radarchart                            
 ragg                                  
 ramify                                
-rand                                  
 randomForest                          
 randomForestSRC                       
 randomGLM                             
@@ -1382,7 +1384,6 @@ regclass
 relaimpo                              
 relaxo                                
 reldist                               
-remap                                 
 remotes                               
 reposTools                            
 repr                                  
@@ -1390,6 +1391,7 @@ reprex
 reprtree                              
 reshape                               
 reshape2                              
+reshape2p                             
 rethinking                            
 reticualte                            
 reticulate                            
@@ -1427,6 +1429,7 @@ ropls
 roxygen2                              
 rpart                                 
 rpivotTable                           
+rpostgis                              
 rpud                                  
 rqPen                                 
 rsample                               
@@ -1510,10 +1513,10 @@ sjlabelled
 sjmisc                                
 sjp                                   
 sjstats                               
+ski                                   
 skimr                                 
 skmeans                               
 slam                                  
-slider                                
 sm                                    
 smacof                                
 smooth                                
@@ -1529,16 +1532,17 @@ sp
 spData                                
 spDataLarge                           
 spacetime                             
+spacy                                 
 spacyr                                
 sparcl                                
 sparklyr                              
 sparr                                 
 sparseSVM                             
-spatialEco                            
 spatialreg                            
 spatstat                              
 spbabel                               
 spdep                                 
+spectrum                              
 speedglm                              
 spgwr                                 
 spida2                                
@@ -1584,6 +1588,7 @@ survminer
 svMisc                                
 sva                                   
 svglite                               
+swat                                  
 sweary                                
 swfscMisc                             
 swirl                                 
@@ -1603,6 +1608,7 @@ tabulizer
 tailDepFun                            
 tau                                   
 tcltk                                 
+tdigest                               
 tdisplay                              
 terra                                 
 testthat                              
@@ -1620,6 +1626,7 @@ textplot
 textrecipes                           
 textreuse                             
 textshape                             
+textstat                              
 textstem                              
 tfaddons                              
 tfautograph                           
@@ -1631,11 +1638,9 @@ tfprobability
 tfruns                                
 themis                                
 threejs                               
-ti                                    
 tibble                                
 tibbletime                            
 tictoc                                
-tid                                   
 tidy                                  
 tidybayes                             
 tidycensus                            
@@ -1654,6 +1659,7 @@ tidytuesdayR
 tidyvers                              
 tidyverse                             
 tidyverses                            
+tidyvese                              
 tiff                                  
 tigerstats                            
 tigris                                
@@ -1673,7 +1679,6 @@ tools
 topicmodels                           
 torch                                 
 torchvision                           
-tourr                                 
 transformers                          
 transformr                            
 transport                             
@@ -1692,6 +1697,7 @@ tsfknn
 tsibble                               
 tsne                                  
 tsoutliers                            
+tsutils                               
 tufte                                 
 tune                                  
 tuneR                                 
@@ -1702,7 +1708,6 @@ twenty48
 twilio                                
 twitteR                               
 txgboost                              
-tximeta                               
 tydiverse                             
 udpipe                                
 uklr                                  
@@ -1747,7 +1752,6 @@ vitae
 vmd                                   
 vroom                                 
 vrtest                                
-vsn                                   
 vtable                                
 vtreat                                
 vtree                                 
@@ -1786,7 +1790,6 @@ xgb
 xgboost                               
 xlsx                                  
 xml2                                  
-xrf                                   
 xtable                                
 xts                                   
 yaml                                  
