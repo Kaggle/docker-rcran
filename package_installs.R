@@ -40,7 +40,7 @@ do_one <- function(pkg){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=FALSE),
+    install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=REPO),
     error=h,
     warning=h)
 }
