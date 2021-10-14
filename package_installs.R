@@ -18,7 +18,7 @@ unlink("install_log_parallel")
 # Install util packages.
 utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat', 'hrbrthemes')
 for (p in utilPackages) {
-  install.packages(p, verbose=FALSE, quiet=FALSE)
+  install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
 }
 
 # All packages available in the repo.
@@ -36,11 +36,11 @@ pkgs <- pmerged[,1]
 
 M <- min(M, length(pkgs))
 
-do_one <- function(pkg){
+do_one <- function(pkg, repos){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=REPO),
+    install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=repos),
     error=h,
     warning=h)
 }
@@ -70,7 +70,7 @@ print(paste("Total packages to install: ", total))
 cl <- makeCluster(M, outfile = "install_log_parallel")
 
 submit <- function(node, pkg) {
-  parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
+  parallel:::sendCall(cl[[node]], do_one, list(pkg, repos=REPO), tag = pkg)
 }
 
 for (i in 1:min(n, M)) {
@@ -134,7 +134,7 @@ while(length(dl) > 0 || length(av) != M) {
 # previous technique.
 for (p in p[,1]) {
   if (!require(p, character.only = TRUE)) {
-    install.packages(p, verbose=FALSE, quiet=FALSE)
+    install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
   }
 }
 
