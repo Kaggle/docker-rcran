@@ -12,6 +12,7 @@ M <- 16
 options(Ncpus = parallel::detectCores())
 
 # Install parallel library.
+library(devtools)
 library(parallel)
 unlink("install_log_parallel")
 
@@ -137,6 +138,9 @@ for (p in p[,1]) {
     install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
   }
 }
+
+# [b/219681100] Install a previous version of randomForest.
+install_version("randomForest", version='4.6.14')
 
 print("Done!")
 print(paste("Successfully installed:", success))
