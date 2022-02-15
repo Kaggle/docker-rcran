@@ -138,6 +138,10 @@ for (p in p[,1]) {
   }
 }
 
+# [b/219681100] Install a previous version of randomForest.
+library(devtools)
+install_version("randomForest", version='4.6.14')
+
 print("Done!")
 print(paste("Successfully installed:", success))
 print(paste("Likely failed:", errors))
