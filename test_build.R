@@ -52,7 +52,7 @@ Library("zoo")
 #Packages for Neurohacking in R coursera course
 Library("oro.nifti")
 Library("oro.dicom")
-Library("fslr")
+# b/232137539 fslr is installed in rstats.
 
 testPlot1 <- ggplot(data.frame(x=1:10,y=runif(10))) + aes(x=x,y=y) + geom_line()
 ggsave(testPlot1, filename="plot1.png")
