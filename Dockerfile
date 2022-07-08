@@ -7,7 +7,10 @@ RUN apt-get update && \
 
 # Install Rust and Cargo. Some R packages requires Rust.
 # See: b/113106905
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+# Script is pulled from https://sh.rustup.rs and mirrored locally for security reasons.
+# See: b/238367731
+ADD rustup.sh rustup.sh
+RUN cat rustup.sh | sh -s -- -y
 
 ADD packages packages
 ADD packages_users packages_users
