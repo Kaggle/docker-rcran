@@ -21,6 +21,11 @@ for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
 }
 
+# Install older version of packages.
+library(devtools)
+install_version("randomForest", version='4.6.14') # [b/219681100]
+install_version("terra", version='1.5-34') # [b/240934971]
+
 # All packages available in the repo.
 allPackages <- as.data.frame(available.packages(repos=REPO))
 
@@ -137,10 +142,6 @@ for (p in p[,1]) {
     install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
   }
 }
-
-# [b/219681100] Install a previous version of randomForest.
-library(devtools)
-install_version("randomForest", version='4.6.14')
 
 print("Done!")
 print(paste("Successfully installed:", success))
