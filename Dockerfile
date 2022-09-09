@@ -12,6 +12,32 @@ RUN apt-get update && \
 ADD rustup.sh rustup.sh
 RUN cat rustup.sh | sh -s -- -y
 
+ADD clean-layer.sh  /tmp/clean-layer.sh
+
+RUN apt-get update && \
+    apt-get install apt-transport-https && \
+    apt-get install -y -f r-cran-rgtk2 && \
+    apt-get install -y -f libv8-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
+    libtiff5-dev fftw3 fftw3-dev libfftw3-dev libjpeg-dev libhdf4-0-alt libhdf4-alt-dev \
+    libhdf5-dev libx11-dev cmake libglu1-mesa-dev libgtk2.0-dev librsvg2-dev libxt-dev \
+    patch libgit2-dev && \
+    /tmp/clean-layer.sh
+
+RUN apt-get update && apt-get install -y build-essential git ninja-build ccache  libatlas-base-dev libopenblas-dev libopencv-dev python3-opencv && \
+    cd /usr/local/share && git clone --recursive --depth=1 --branch v1.8.x https://github.com/apache/incubator-mxnet.git mxnet && \
+    cd mxnet && cp config/linux.cmake config.cmake && rm -rf build && \
+    mkdir -p build && cd build && cmake .. && cmake --build . --parallel $(nproc) && \
+    cd .. && make -f R-package/Makefile rpkg && \
+    /tmp/clean-layer.sh
+
+    # Needed for "h5" library
+RUN apt-get install -y libhdf5-dev && \
+    # Needed for "topicmodels" library
+    apt-get install -y libgsl-dev && \
+    # Needed for "tesseract" library
+    apt-get install -y libpoppler-cpp-dev libtesseract-dev tesseract-ocr-eng && \
+    /tmp/clean-layer.sh
+
 ADD packages packages
 ADD packages_users packages_users
 ADD package_installs.R /tmp/package_installs.R
