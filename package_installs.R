@@ -44,6 +44,7 @@ M <- min(M, length(pkgs))
 do_one <- function(pkg, repos){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
+  print(paste("PHILMOD:", company))
   tryCatch(
     install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=repos),
     error=h,
