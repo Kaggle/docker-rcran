@@ -64,6 +64,7 @@ stringr
 survival
 terra
 testthat
+tfhub
 tidymodels
 tidyr
 timereg
