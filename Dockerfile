@@ -1,7 +1,7 @@
 FROM rocker/tidyverse:4.3.1
 
 RUN apt-get update && \
-    apt-get install -y imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
+    apt-get install -y build-essential clang imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
     libjpeg-dev libxt-dev libprotobuf-dev protobuf-compiler libjq-dev libzmq3-dev \
     libv8-dev libnode-dev
 

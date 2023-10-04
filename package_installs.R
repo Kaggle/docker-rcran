@@ -25,6 +25,7 @@ for (p in utilPackages) {
 library(devtools)
 install_version("randomForest", version='4.6.14') # [b/219681100]
 install_version("terra", version='1.5-34') # [b/240934971]
+install_version("ranger", version='0.14.1') # [b/291120269]
 
 # All packages available in the repo.
 allPackages <- as.data.frame(available.packages(repos=REPO))
