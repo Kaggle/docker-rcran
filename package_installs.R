@@ -21,6 +21,13 @@ for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
 }
 
+# Install older version of packages.
+library(devtools)
+install_version("randomForest", version='4.6.14') # [b/219681100]
+install_version("terra", version='1.5-34') # [b/240934971]
+install_version("ranger", version='0.14.1') # [b/291120269]
+install_version("leaflet", version='2.1.2') # [b/299859148]
+
 # All packages available in the repo.
 allPackages <- as.data.frame(available.packages(repos=REPO))
 
@@ -137,15 +144,6 @@ for (p in p[,1]) {
     install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
   }
 }
-
-
-# Install older version of packages.
-library(devtools)
-install_version("randomForest", version='4.6.14') # [b/219681100]
-install_version("terra", version='1.5-34') # [b/240934971]
-install_version("ranger", version='0.14.1') # [b/291120269]
-install_version("leaflet", version='2.1.2') # [b/299859148]
-
 
 print("Done!")
 print(paste("Successfully installed:", success))
