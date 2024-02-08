@@ -23,8 +23,11 @@ RUN apt-get update && \
     patch libgit2-dev && \
     /tmp/clean-layer.sh
 
+# TODO(b/324184434): necessary for mxnet, let's try to remove in the future.
+RUN R -e "install.packages('DiagrammeR')"
+
 RUN apt-get update && apt-get install -y build-essential git ninja-build ccache  libatlas-base-dev libopenblas-dev libopencv-dev python3-opencv && \
-    cd /usr/local/share && git clone --recursive --depth=1 --branch v1.8.x https://github.com/apache/incubator-mxnet.git mxnet && \
+    cd /usr/local/share && git clone --recursive --depth=1 --branch v1.9.x https://github.com/apache/incubator-mxnet.git mxnet && \
     cd mxnet && cp config/linux.cmake config.cmake && rm -rf build && \
     mkdir -p build && cd build && cmake .. && cmake --build . --parallel $(nproc) && \
     cd .. && make -f R-package/Makefile rpkg && \
