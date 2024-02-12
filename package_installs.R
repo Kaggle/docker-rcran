@@ -136,11 +136,11 @@ while(length(dl) > 0 || length(av) != M) {
 }
 
 # Make sure the packages from the file `packages` are properly installed 
-# otherwise reinstalling in a single thread, as they sometimes fail in the
-# previous technique.
+# otherwise reinstalling in a single thread from a different repo, as they sometimes 
+# fail in the previous technique.
 for (p in p[,1]) {
   if (!require(p, character.only = TRUE)) {
-    install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
+    install.packages(p, verbose=FALSE, quiet=FALSE, repos='http://cran.rstudio.com')
   }
 }
 
