@@ -1,3 +1,7 @@
+# Repo to pull package data and metadata from.
+REPO <- 'http://cran.us.r-project.org'
+options(repos = c("CRAN" = REPO))
+
 options(install.packages.compile.from.source = "never")
 
 # Number of parallel installs. 
@@ -14,11 +18,17 @@ unlink("install_log_parallel")
 # Install util packages.
 utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat', 'hrbrthemes')
 for (p in utilPackages) {
-  install.packages(p, verbose=FALSE, quiet=FALSE)
+  install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
 }
 
+# Install older version of packages.
+library(devtools)
+install_version("randomForest", version='4.6.14') # [b/219681100]
+install_version("terra", version='1.5-34') # [b/240934971]
+install_version("ranger", version='0.14.1') # [b/291120269]
+
 # All packages available in the repo.
-allPackages <- as.data.frame(available.packages())
+allPackages <- as.data.frame(available.packages(repos=REPO))
 
 # Already installed packages.
 existingPackages <- installed.packages()
@@ -36,7 +46,7 @@ do_one <- function(pkg, repos){
   h <- function(e) structure(conditionMessage(e), class=c("snow-try-error","try-error"))
   # Treat warnings as errors. (An example 'warning' is that the package is not found!)
   tryCatch(
-    install.packages(pkg, verbose=FALSE, quiet=FALSE),
+    install.packages(pkg, verbose=FALSE, quiet=FALSE, repos=repos),
     error=h,
     warning=h)
 }
@@ -66,7 +76,7 @@ print(paste("Total packages to install: ", total))
 cl <- makeCluster(M, outfile = "install_log_parallel")
 
 submit <- function(node, pkg) {
-  parallel:::sendCall(cl[[node]], do_one, list(pkg), tag = pkg)
+  parallel:::sendCall(cl[[node]], do_one, list(pkg, repos=REPO), tag = pkg)
 }
 
 for (i in 1:min(n, M)) {
@@ -126,11 +136,11 @@ while(length(dl) > 0 || length(av) != M) {
 }
 
 # Make sure the packages from the file `packages` are properly installed 
-# otherwise reinstalling in a single thread, as they sometimes fail in the
-# previous technique.
+# otherwise reinstalling in a single thread from a different repo, as they sometimes 
+# fail in the previous technique.
 for (p in p[,1]) {
   if (!require(p, character.only = TRUE)) {
-    install.packages(p, verbose=FALSE, quiet=FALSE)
+    install.packages(p, verbose=FALSE, quiet=FALSE, repos='http://cran.rstudio.com')
   }
 }
 
