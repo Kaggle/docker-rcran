@@ -49,6 +49,7 @@ rARPACK
 RColorBrewer
 Rcpp
 RCurl
+Rtsne
 readr
 repr
 reshape2
