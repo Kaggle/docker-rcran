@@ -26,7 +26,7 @@ make_dependency_list <-
         xx <- vector("list", length(known)); names(xx) <- known
         info2 <-  available[, dependencies, drop = FALSE]
         for (i in seq_along(known))
-            xx[[i]] <- .clean_up_dependencies(info2[i, ])
+            xx[[i]] <- clean_up_dependencies(info2[i, ])
         for (i in pkgs) {
             p <- xx[[i]]
             p <- p[p %in% known]; p1 <- p
@@ -42,7 +42,7 @@ make_dependency_list <-
             x[[i]] <- p
         }
     } else {
-        for (i in seq_along(pkgs)) x[[i]] <- .clean_up_dependencies(info[i, ])
+        for (i in seq_along(pkgs)) x[[i]] <- clean_up_dependencies(info[i, ])
     }
     x
 }
@@ -113,7 +113,7 @@ alreadyInstalled <- function(pkg){
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
 print("Generating dependency list...")
-dl <- utils:::.make_dependency_list(pkgs, allPackages, recursive = TRUE)
+dl <- make_dependency_list(pkgs, allPackages, recursive = TRUE)
 dl <- dl[!vecAlreadyInstalled(names(dl))]
 dl <- lapply(dl, function(x) x[x %in% names(dl)])
 lens <- sapply(dl, length)
