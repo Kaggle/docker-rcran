@@ -8,10 +8,7 @@ clean_up_dependencies <- function(x, available = NULL)
     unique(sub("^[[:space:]]*([[:alnum:].]+).*$", "\\1" , x))
 }
 
-make_dependency_list <-
-    function(pkgs, available,
-             dependencies = c("Depends", "Imports", "LinkingTo"),
-             recursive = FALSE)
+make_dependency_list <- function(pkgs, available, dependencies = c("Depends", "Imports", "LinkingTo"), recursive = FALSE)
 {
     ## given a character vector of packages,
     ## return a named list of character vectors of their dependencies.
