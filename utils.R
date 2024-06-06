@@ -26,7 +26,7 @@ make_dependency_list <- function(pkgs, available)
     known_packages <- row.names(available)
     info <-  available[, entries, drop = FALSE]
 
-    known_packages_with_dep <- vector("list", length(known_packages)); names(xx) <- known_packages
+    known_packages_with_dep <- vector("list", length(known_packages)); names(known_packages_with_dep) <- known_packages
     for (i in seq_along(known_packages))
         known_packages_with_dep[[i]] <- clean_up_dependencies(info[i, ])
 
