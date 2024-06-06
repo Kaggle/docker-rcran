@@ -62,7 +62,7 @@ alreadyInstalled <- function(pkg){
 }
 vecAlreadyInstalled <- Vectorize(alreadyInstalled)
 
-source('utils.R')
+source('/tmp/utils.R')
 print("Generating dependency list...")
 dl <- make_dependency_list(pkgs, allPackages, recursive = TRUE)
 dl <- dl[!vecAlreadyInstalled(names(dl))]

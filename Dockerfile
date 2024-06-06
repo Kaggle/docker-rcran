@@ -47,6 +47,8 @@ RUN apt-get install -y libhdf5-dev && \
 ADD packages packages
 ADD packages_users packages_users
 ADD package_installs.R /tmp/package_installs.R
+ADD utils.R /tmp/utils.R
+
 RUN Rscript /tmp/package_installs.R && \
     bash -c "rm -Rf /tmp/Rtmp*"
 
