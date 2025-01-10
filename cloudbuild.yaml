@@ -16,8 +16,8 @@ steps:
   - '-c'
   - |
     set -e
-    gcloud container images list-tags us-docker.pkg.dev/$PROJECT_ID/tools/rcran-build:$BUILD_ID --filter="NOT tags:latest timestamp.datetime < -P6M" --format='get(digest)' --limit 100 | xargs -I {} gcloud container images delete us-docker.pkg.dev/$PROJECT_ID/tools/rcran-build@{} --quiet --force-delete-tags
-    gcloud container images list-tags gcr.io/kaggle-images/rcran --filter="NOT tags:latest timestamp.datetime < -P6M" --format='get(digest)' --limit 100 | xargs -I {} gcloud container images delete gcr.io/kaggle-images/rcran@{} --quiet --force-delete-tags
+    gcloud artifacts docker tags list us-docker.pkg.dev/$PROJECT_ID/tools/rcran-build:$BUILD_ID --filter="NOT tags:latest timestamp.datetime < -P6M" --format='get(digest)' --limit 100 | xargs -I {} gcloud artifacts docker images delete us-docker.pkg.dev/$PROJECT_ID/tools/rcran-build@{} --quiet --delete-tags
+    gcloud artifacts docker tags list gcr.io/kaggle-images/rcran --filter="NOT tags:latest timestamp.datetime < -P6M" --format='get(digest)' --limit 100 | xargs -I {} gcloud artifacts docker images delete gcr.io/kaggle-images/rcran@{} --quiet --delete-tags
 
 # Pushing the intermediate image can be useful to debug test failures.
 - id: 'intermediate-push'
