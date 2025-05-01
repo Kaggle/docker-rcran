@@ -15,13 +15,10 @@ ADD clean-layer.sh  /tmp/clean-layer.sh
 
 RUN apt-get update && \
     apt-get install apt-transport-https && \
-    apt-get install -y -f libv8-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
+    apt-get install -y -f libv8-dev libfftw3-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
     libtiff5-dev libjpeg-dev libhdf4-0-alt libhdf4-alt-dev \
     libhdf5-dev libx11-dev cmake libglu1-mesa-dev libgtk2.0-dev librsvg2-dev libxt-dev \
     patch libgit2-dev && \
-    /tmp/clean-layer.sh
-
-RUN apt-get update && apt-get install -y libfftw3-dev libfftw3-3 && \
     /tmp/clean-layer.sh
 
 # For package `imager`
