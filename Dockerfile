@@ -21,7 +21,7 @@ RUN apt-get update && \
     patch libgit2-dev && \
     /tmp/clean-layer.sh
 
-RUN apt-get update && apt-get install -y libfftw3-dev && \
+RUN apt-get update && apt-get install -y libfftw3-dev libfftw3-3 && \
     /tmp/clean-layer.sh
 
 # For package `imager`
