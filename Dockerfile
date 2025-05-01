@@ -1,4 +1,5 @@
 FROM rocker/tidyverse:4.5.0
+
 RUN apt-get update && \
     apt-get install -y build-essential clang imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
     libjpeg-dev libxt-dev libprotobuf-dev protobuf-compiler libjq-dev libzmq3-dev \
