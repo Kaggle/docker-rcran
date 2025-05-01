@@ -21,6 +21,10 @@ RUN apt-get update && \
     patch libgit2-dev && \
     /tmp/clean-layer.sh
 
+# For package `imager`
+RUN apt-get install -y fftw3 fftw3-dev libfftw3-dev libfftw3-dev libtiff-dev libxml2-dev libicu-dev libgmp-dev libpng-dev libglpk-dev && \
+    /tmp/clean-layer.sh
+
 # TODO(b/324184434): necessary for mxnet, let's try to remove in the future.
 RUN R -e "install.packages('DiagrammeR')"
 
