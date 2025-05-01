@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.4.0
+FROM rocker/tidyverse:4.5.0
 
 RUN apt-get update && \
     apt-get install -y build-essential clang imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
@@ -16,14 +16,14 @@ ADD clean-layer.sh  /tmp/clean-layer.sh
 
 RUN apt-get update && \
     apt-get install apt-transport-https && \
-    apt-get install -y -f libv8-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
-    libtiff5-dev fftw3 fftw3-dev libfftw3-dev libjpeg-dev libhdf4-0-alt libhdf4-alt-dev \
+    apt-get install -y -f libv8-dev libfftw3-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
+    libtiff5-dev libjpeg-dev libhdf4-0-alt libhdf4-alt-dev \
     libhdf5-dev libx11-dev cmake libglu1-mesa-dev libgtk2.0-dev librsvg2-dev libxt-dev \
     patch libgit2-dev && \
     /tmp/clean-layer.sh
 
 # For package `imager`
-RUN apt-get install -y libfftw3-dev libtiff-dev libxml2-dev libicu-dev libgmp-dev libpng-dev libglpk-dev && \
+RUN apt-get install -y libtiff-dev libxml2-dev libicu-dev libgmp-dev libpng-dev libglpk-dev && \
     /tmp/clean-layer.sh
 
 # TODO(b/324184434): necessary for mxnet, let's try to remove in the future.
