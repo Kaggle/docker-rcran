@@ -16,7 +16,7 @@ library(parallel)
 unlink("install_log_parallel")
 
 # Install util packages.
-utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat', 'hrbrthemes')
+utilPackages <- c('Rcpp', 'repr', 'rmutil', 'testthat')
 for (p in utilPackages) {
   install.packages(p, verbose=FALSE, quiet=FALSE, repos=REPO)
 }
