@@ -1,9 +1,9 @@
-FROM rocker/tidyverse:4.5.0
+FROM us-docker.pkg.dev/colab-images/public/runtime:release-colab_20250505-060110_RC00
 
 RUN apt-get update && \
-    apt-get install -y build-essential clang imagemagick libmagick++-dev libudunits2-dev curl libgdal-dev \
-    libjpeg-dev libxt-dev libprotobuf-dev protobuf-compiler libjq-dev libzmq3-dev \
-    libv8-dev libnode-dev
+    apt-get install -y imagemagick libmagick++-dev \
+    libjpeg-dev libxt-dev libprotobuf-dev libjq-dev \
+    libnode-dev
 
 # Install Rust and Cargo. Some R packages requires Rust.
 # See: b/113106905
@@ -16,14 +16,14 @@ ADD clean-layer.sh  /tmp/clean-layer.sh
 
 RUN apt-get update && \
     apt-get install apt-transport-https && \
-    apt-get install -y -f libv8-dev libfftw3-dev libgeos-dev libgdal-dev libproj-dev libsndfile1-dev \
-    libtiff5-dev libjpeg-dev libhdf4-0-alt libhdf4-alt-dev \
-    libhdf5-dev libx11-dev cmake libglu1-mesa-dev libgtk2.0-dev librsvg2-dev libxt-dev \
-    patch libgit2-dev && \
+    apt-get install -y -f libv8-dev libfftw3-dev libgeos-dev libproj-dev \
+    libtiff5-dev libhdf4-0-alt libhdf4-alt-dev \
+    libx11-dev libglu1-mesa-dev libgtk2.0-dev librsvg2-dev \
+    patch && \
     /tmp/clean-layer.sh
 
 # For package `imager`
-RUN apt-get install -y libtiff-dev libxml2-dev libicu-dev libgmp-dev libpng-dev libglpk-dev && \
+RUN apt-get install -y libtiff-dev libglpk-dev && \
     /tmp/clean-layer.sh
 
 # TODO(b/324184434): necessary for mxnet, let's try to remove in the future.
@@ -36,10 +36,8 @@ RUN apt-get update && apt-get install -y build-essential git ninja-build ccache 
     cd .. && make -f R-package/Makefile rpkg && \
     /tmp/clean-layer.sh
 
-    # Needed for "h5" library
-RUN apt-get install -y libhdf5-dev && \
     # Needed for "topicmodels" library
-    apt-get install -y libgsl-dev && \
+RUN apt-get install -y libgsl-dev && \
     # Needed for "tesseract" library
     apt-get install -y libpoppler-cpp-dev libtesseract-dev tesseract-ocr-eng && \
     /tmp/clean-layer.sh
