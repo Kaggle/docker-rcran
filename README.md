@@ -1,4 +1,7 @@
+> **Note:** R Support has been removed from Kaggle notebooks: https://www.kaggle.com/discussions/product-announcements/751525
+
 # docker-rcran
+
 A dockerfile to install a list of packages from CRAN.
 
 ## Packages
